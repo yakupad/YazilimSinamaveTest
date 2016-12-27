@@ -227,6 +227,7 @@ namespace YazilimSinamaveTest
                     guncellenicek.WorkFollowName = lblAnaliz.Text;
                     guncellenicek.UserID = db.tblUsers.FirstOrDefault(x => x.UserNickname == comboBoxAnaliz.SelectedItem.ToString()).UsersID;
                     db.SaveChanges();
+                    
                 }
                 else
                 {

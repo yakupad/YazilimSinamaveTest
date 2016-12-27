@@ -13,7 +13,6 @@ C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinama
 C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmUyeGiris.resources
 C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmUyeKayit.resources
 C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmRolSecimi.resources
-C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmProjeEkrani.resources
 C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmMusteri.resources
 C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinamaveTest\bin\Debug\System.Web.DataVisualization.Design.dll
 C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinamaveTest\bin\Debug\System.Web.DataVisualization.dll
