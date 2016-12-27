@@ -38,7 +38,6 @@ C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\bin\Debug
 C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.csprojResolveAssemblyReference.cache
 C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmKullaniciIslemleri.resources
 C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmMusteri.resources
-C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmProjeEkrani.resources
 C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmRolSecimi.resources
 C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmSurec.resources
 C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmUyeGiris.resources
@@ -47,3 +46,5 @@ C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug
 C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmYonetici.resources
 C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.Properties.Resources.resources
 C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.csproj.GenerateResource.Cache
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\bin\Debug\itextsharp.dll
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\bin\Debug\itextsharp.xml
