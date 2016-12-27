@@ -43,6 +43,7 @@
             this.lblParola = new System.Windows.Forms.Label();
             this.lblKayıtTarihi = new System.Windows.Forms.Label();
             this.dateTimePickerKayitTarihi = new System.Windows.Forms.DateTimePicker();
+            this.btnKullaniciGuncelle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxUyeler
@@ -64,7 +65,6 @@
             this.checkBoxMusteri.TabIndex = 1;
             this.checkBoxMusteri.Text = "Müşteri";
             this.checkBoxMusteri.UseVisualStyleBackColor = false;
-            this.checkBoxMusteri.CheckedChanged += new System.EventHandler(this.checkBoxMusteri_CheckedChanged);
             // 
             // checkBoxYonetici
             // 
@@ -76,7 +76,6 @@
             this.checkBoxYonetici.TabIndex = 2;
             this.checkBoxYonetici.Text = "Yönetici";
             this.checkBoxYonetici.UseVisualStyleBackColor = false;
-            this.checkBoxYonetici.CheckedChanged += new System.EventHandler(this.checkBoxYonetici_CheckedChanged);
             // 
             // checkBoxYazilimci
             // 
@@ -88,7 +87,6 @@
             this.checkBoxYazilimci.TabIndex = 3;
             this.checkBoxYazilimci.Text = "Yazılımcı";
             this.checkBoxYazilimci.UseVisualStyleBackColor = false;
-            this.checkBoxYazilimci.CheckedChanged += new System.EventHandler(this.checkBoxYazilimci_CheckedChanged);
             // 
             // textBoxAd
             // 
@@ -187,13 +185,24 @@
             this.dateTimePickerKayitTarihi.Size = new System.Drawing.Size(124, 20);
             this.dateTimePickerKayitTarihi.TabIndex = 0;
             // 
+            // btnKullaniciGuncelle
+            // 
+            this.btnKullaniciGuncelle.Location = new System.Drawing.Point(15, 223);
+            this.btnKullaniciGuncelle.Name = "btnKullaniciGuncelle";
+            this.btnKullaniciGuncelle.Size = new System.Drawing.Size(199, 23);
+            this.btnKullaniciGuncelle.TabIndex = 15;
+            this.btnKullaniciGuncelle.Text = "Kullanıcı Güncelle";
+            this.btnKullaniciGuncelle.UseVisualStyleBackColor = true;
+            this.btnKullaniciGuncelle.Click += new System.EventHandler(this.btnKullaniciGuncelle_Click);
+            // 
             // frmKullaniciIslemleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::YazilimSinamaveTest.Properties.Resources.bck;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(232, 226);
+            this.ClientSize = new System.Drawing.Size(232, 258);
+            this.Controls.Add(this.btnKullaniciGuncelle);
             this.Controls.Add(this.dateTimePickerKayitTarihi);
             this.Controls.Add(this.lblKayıtTarihi);
             this.Controls.Add(this.lblParola);
@@ -237,5 +246,6 @@
         private System.Windows.Forms.Label lblParola;
         private System.Windows.Forms.Label lblKayıtTarihi;
         private System.Windows.Forms.DateTimePicker dateTimePickerKayitTarihi;
+        private System.Windows.Forms.Button btnKullaniciGuncelle;
     }
 }

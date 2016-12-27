@@ -93,6 +93,9 @@ namespace YazilimSinamaveTest
             
         }
 
-        
+        private void frmUyeKayit_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
