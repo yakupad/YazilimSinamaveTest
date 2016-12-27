@@ -48,8 +48,9 @@
     </Key>
     <Property Name="UserLogDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserLogsID" Type="int" />
-    <Property Name="UserLogName" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserLogDescription" Type="nvarchar" MaxLength="200" />
     <Property Name="LogDate" Type="datetime" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tblUserLogs">
     <Key>
@@ -100,18 +101,6 @@
     <Property Name="CompleteRate" Type="int" />
     <Property Name="CompletedDate" Type="datetime" />
   </EntityType>
-  <Association Name="fk">
-    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
-    <End Role="tblUserProcess" Type="Self.tblUserProcess" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblUsers">
-        <PropertyRef Name="UsersID" />
-      </Principal>
-      <Dependent Role="tblUserProcess">
-        <PropertyRef Name="UsersID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_b">
     <End Role="tblProcess" Type="Self.tblProcess" Multiplicity="0..1" />
     <End Role="tblProcess1" Type="Self.tblProcess" Multiplicity="*" />
@@ -262,18 +251,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fkss">
-    <End Role="tblUserRoles" Type="Self.tblUserRoles" Multiplicity="0..1" />
-    <End Role="tblUserProcess" Type="Self.tblUserProcess" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblUserRoles">
-        <PropertyRef Name="UserRolesID" />
-      </Principal>
-      <Dependent Role="tblUserProcess">
-        <PropertyRef Name="UserRolesID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="up_p">
     <End Role="tblProcess" Type="Self.tblProcess" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -288,6 +265,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="userpuser">
+    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+    <End Role="tblUserProcess" Type="Self.tblUserProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsers">
+        <PropertyRef Name="UsersID" />
+      </Principal>
+      <Dependent Role="tblUserProcess">
+        <PropertyRef Name="UsersID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="yazilimsinamaModelStoreContainer">
     <EntitySet Name="tblProcess" EntityType="Self.tblProcess" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblProjects" EntityType="Self.tblProjects" Schema="dbo" store:Type="Tables" />
@@ -298,10 +287,6 @@
     <EntitySet Name="tblUserRoles" EntityType="Self.tblUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblWorkFollow" EntityType="Self.tblWorkFollow" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="fk" Association="Self.fk">
-      <End Role="tblUsers" EntitySet="tblUsers" />
-      <End Role="tblUserProcess" EntitySet="tblUserProcess" />
-    </AssociationSet>
     <AssociationSet Name="fk_b" Association="Self.fk_b">
       <End Role="tblProcess" EntitySet="tblProcess" />
       <End Role="tblProcess1" EntitySet="tblProcess" />
@@ -350,12 +335,12 @@
       <End Role="tblUsers" EntitySet="tblUsers" />
       <End Role="tblUserLogs" EntitySet="tblUserLogs" />
     </AssociationSet>
-    <AssociationSet Name="fkss" Association="Self.fkss">
-      <End Role="tblUserRoles" EntitySet="tblUserRoles" />
-      <End Role="tblUserProcess" EntitySet="tblUserProcess" />
-    </AssociationSet>
     <AssociationSet Name="up_p" Association="Self.up_p">
       <End Role="tblProcess" EntitySet="tblProcess" />
+      <End Role="tblUserProcess" EntitySet="tblUserProcess" />
+    </AssociationSet>
+    <AssociationSet Name="userpuser" Association="Self.userpuser">
+      <End Role="tblUsers" EntitySet="tblUsers" />
       <End Role="tblUserProcess" EntitySet="tblUserProcess" />
     </AssociationSet>
   </EntityContainer>

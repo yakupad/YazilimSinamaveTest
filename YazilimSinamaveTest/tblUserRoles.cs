@@ -14,19 +14,11 @@ namespace YazilimSinamaveTest
     
     public partial class tblUserRoles
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblUserRoles()
-        {
-            this.tblUserProcess = new HashSet<tblUserProcess>();
-        }
-    
         public int UserRolesID { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<int> RoleNameID { get; set; }
     
         public virtual tblRoleNames tblRoleNames { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblUserProcess> tblUserProcess { get; set; }
         public virtual tblUsers tblUsers { get; set; }
     }
 }

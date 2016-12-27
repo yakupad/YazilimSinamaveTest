@@ -51,8 +51,14 @@ namespace YazilimSinamaveTest
                 userrole.RoleNameID = 2;
                 db.tblUserRoles.Add(userrole);
                 db.SaveChanges();
-                
-                
+
+                    tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                    log.LogDate = DateTime.Now;
+                    log.UserLogDescription = "Üye Kaydı Yaptı";
+                    log.Username = user.UserNickname;
+                    db.tblUserLogDetails.Add(log);
+                    db.SaveChanges();
+                    
                 frmUyeGiris giris = new YazilimSinamaveTest.frmUyeGiris();
                 this.Hide();
                 giris.Show();

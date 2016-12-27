@@ -49,8 +49,9 @@
     <EntitySetMapping Name="tblUserLogDetails">
       <EntityTypeMapping TypeName="yazilimsinamaModel.tblUserLogDetails">
         <MappingFragment StoreEntitySet="tblUserLogDetails">
+          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="LogDate" ColumnName="LogDate" />
-          <ScalarProperty Name="UserLogName" ColumnName="UserLogName" />
+          <ScalarProperty Name="UserLogDescription" ColumnName="UserLogDescription" />
           <ScalarProperty Name="UserLogsID" ColumnName="UserLogsID" />
           <ScalarProperty Name="UserLogDetailsID" ColumnName="UserLogDetailsID" />
         </MappingFragment>

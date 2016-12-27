@@ -21,9 +21,9 @@ namespace YazilimSinamaveTest
             this.tblProjects = new HashSet<tblProjects>();
             this.tblProjects1 = new HashSet<tblProjects>();
             this.tblUserLogs = new HashSet<tblUserLogs>();
-            this.tblUserProcess = new HashSet<tblUserProcess>();
             this.tblUserRoles = new HashSet<tblUserRoles>();
             this.tblWorkFollow = new HashSet<tblWorkFollow>();
+            this.tblUserProcess = new HashSet<tblUserProcess>();
         }
     
         public int UsersID { get; set; }
@@ -42,10 +42,10 @@ namespace YazilimSinamaveTest
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblUserLogs> tblUserLogs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblUserProcess> tblUserProcess { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblUserRoles> tblUserRoles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblWorkFollow> tblWorkFollow { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblUserProcess> tblUserProcess { get; set; }
     }
 }

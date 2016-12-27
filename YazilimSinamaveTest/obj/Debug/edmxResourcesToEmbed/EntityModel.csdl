@@ -30,6 +30,10 @@
       <End Role="tblProjects" EntitySet="tblProjects" />
       <End Role="tblProcess" EntitySet="tblProcess" />
     </AssociationSet>
+    <AssociationSet Name="up_p" Association="yazilimsinamaModel.up_p">
+      <End Role="tblProcess" EntitySet="tblProcess" />
+      <End Role="tblUserProcess" EntitySet="tblUserProcess" />
+    </AssociationSet>
     <AssociationSet Name="FK_tblProjects_tblUsers" Association="yazilimsinamaModel.FK_tblProjects_tblUsers">
       <End Role="tblUsers" EntitySet="tblUsers" />
       <End Role="tblProjects" EntitySet="tblProjects" />
@@ -50,14 +54,6 @@
       <End Role="tblUsers" EntitySet="tblUsers" />
       <End Role="tblUserLogs" EntitySet="tblUserLogs" />
     </AssociationSet>
-    <AssociationSet Name="fk" Association="yazilimsinamaModel.fk">
-      <End Role="tblUsers" EntitySet="tblUsers" />
-      <End Role="tblUserProcess" EntitySet="tblUserProcess" />
-    </AssociationSet>
-    <AssociationSet Name="fkss" Association="yazilimsinamaModel.fkss">
-      <End Role="tblUserRoles" EntitySet="tblUserRoles" />
-      <End Role="tblUserProcess" EntitySet="tblUserProcess" />
-    </AssociationSet>
     <AssociationSet Name="FK_tblUserRoles_tblUsers" Association="yazilimsinamaModel.FK_tblUserRoles_tblUsers">
       <End Role="tblUsers" EntitySet="tblUsers" />
       <End Role="tblUserRoles" EntitySet="tblUserRoles" />
@@ -66,8 +62,8 @@
       <End Role="tblUsers" EntitySet="tblUsers" />
       <End Role="tblWorkFollow" EntitySet="tblWorkFollow" />
     </AssociationSet>
-    <AssociationSet Name="up_p" Association="yazilimsinamaModel.up_p">
-      <End Role="tblProcess" EntitySet="tblProcess" />
+    <AssociationSet Name="userpuser" Association="yazilimsinamaModel.userpuser">
+      <End Role="tblUsers" EntitySet="tblUsers" />
       <End Role="tblUserProcess" EntitySet="tblUserProcess" />
     </AssociationSet>
   </EntityContainer>
@@ -131,8 +127,9 @@
     </Key>
     <Property Name="UserLogDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserLogsID" Type="Int32" />
-    <Property Name="UserLogName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UserLogDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="LogDate" Type="DateTime" Precision="3" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="tblUserLogs" Relationship="yazilimsinamaModel.FK_tblUserLogsUserLogsID_tblUserLogDetailsUserLogsID" FromRole="tblUserLogDetails" ToRole="tblUserLogs" />
   </EntityType>
   <EntityType Name="tblUserLogs">
@@ -153,9 +150,8 @@
     <Property Name="UsersID" Type="Int32" />
     <Property Name="ProcessID" Type="Int32" />
     <Property Name="UserRolesID" Type="Int32" />
-    <NavigationProperty Name="tblUsers" Relationship="yazilimsinamaModel.fk" FromRole="tblUserProcess" ToRole="tblUsers" />
-    <NavigationProperty Name="tblUserRoles" Relationship="yazilimsinamaModel.fkss" FromRole="tblUserProcess" ToRole="tblUserRoles" />
     <NavigationProperty Name="tblProcess" Relationship="yazilimsinamaModel.up_p" FromRole="tblUserProcess" ToRole="tblProcess" />
+    <NavigationProperty Name="tblUsers" Relationship="yazilimsinamaModel.userpuser" FromRole="tblUserProcess" ToRole="tblUsers" />
   </EntityType>
   <EntityType Name="tblUserRoles">
     <Key>
@@ -165,7 +161,6 @@
     <Property Name="UserID" Type="Int32" />
     <Property Name="RoleNameID" Type="Int32" />
     <NavigationProperty Name="tblRoleNames" Relationship="yazilimsinamaModel.FK_tblUserRoles_tblRoleNames" FromRole="tblUserRoles" ToRole="tblRoleNames" />
-    <NavigationProperty Name="tblUserProcess" Relationship="yazilimsinamaModel.fkss" FromRole="tblUserRoles" ToRole="tblUserProcess" />
     <NavigationProperty Name="tblUsers" Relationship="yazilimsinamaModel.FK_tblUserRoles_tblUsers" FromRole="tblUserRoles" ToRole="tblUsers" />
   </EntityType>
   <EntityType Name="tblUsers">
@@ -182,9 +177,9 @@
     <NavigationProperty Name="tblProjects" Relationship="yazilimsinamaModel.FK_tblProjects_tblUsers" FromRole="tblUsers" ToRole="tblProjects" />
     <NavigationProperty Name="tblProjects1" Relationship="yazilimsinamaModel.FK_tblProjects_tblUsers1" FromRole="tblUsers" ToRole="tblProjects" />
     <NavigationProperty Name="tblUserLogs" Relationship="yazilimsinamaModel.FK_tblUsersUsersID_tblUserLogsUserID" FromRole="tblUsers" ToRole="tblUserLogs" />
-    <NavigationProperty Name="tblUserProcess" Relationship="yazilimsinamaModel.fk" FromRole="tblUsers" ToRole="tblUserProcess" />
     <NavigationProperty Name="tblUserRoles" Relationship="yazilimsinamaModel.FK_tblUserRoles_tblUsers" FromRole="tblUsers" ToRole="tblUserRoles" />
     <NavigationProperty Name="tblWorkFollow" Relationship="yazilimsinamaModel.FK_tblUsersUserID_WorkFollowUserID" FromRole="tblUsers" ToRole="tblWorkFollow" />
+    <NavigationProperty Name="tblUserProcess" Relationship="yazilimsinamaModel.userpuser" FromRole="tblUsers" ToRole="tblUserProcess" />
   </EntityType>
   <EntityType Name="tblWorkFollow">
     <Key>
@@ -214,7 +209,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_tblProcess_tblUsers">
-    <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
+    <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tblUsers">
@@ -238,7 +235,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_tblProcessProcessID_WorkFollowProcessID">
-    <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="0..1" />
+    <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Type="yazilimsinamaModel.tblWorkFollow" Role="tblWorkFollow" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tblProcess">
@@ -250,7 +249,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_tblProjectsProjectID_tblProcessProjectID">
-    <End Type="yazilimsinamaModel.tblProjects" Role="tblProjects" Multiplicity="0..1" />
+    <End Type="yazilimsinamaModel.tblProjects" Role="tblProjects" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tblProjects">
@@ -258,6 +259,20 @@
       </Principal>
       <Dependent Role="tblProcess">
         <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="up_p">
+    <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="yazilimsinamaModel.tblUserProcess" Role="tblUserProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProcess">
+        <PropertyRef Name="ProcessID" />
+      </Principal>
+      <Dependent Role="tblUserProcess">
+        <PropertyRef Name="ProcessID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -321,30 +336,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk">
-    <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
-    <End Type="yazilimsinamaModel.tblUserProcess" Role="tblUserProcess" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblUsers">
-        <PropertyRef Name="UsersID" />
-      </Principal>
-      <Dependent Role="tblUserProcess">
-        <PropertyRef Name="UsersID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fkss">
-    <End Type="yazilimsinamaModel.tblUserRoles" Role="tblUserRoles" Multiplicity="0..1" />
-    <End Type="yazilimsinamaModel.tblUserProcess" Role="tblUserProcess" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblUserRoles">
-        <PropertyRef Name="UserRolesID" />
-      </Principal>
-      <Dependent Role="tblUserProcess">
-        <PropertyRef Name="UserRolesID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_tblUserRoles_tblUsers">
     <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
     <End Type="yazilimsinamaModel.tblUserRoles" Role="tblUserRoles" Multiplicity="*" />
@@ -369,15 +360,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="up_p">
-    <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="0..1" />
+  <Association Name="userpuser">
+    <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
     <End Type="yazilimsinamaModel.tblUserProcess" Role="tblUserProcess" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tblProcess">
-        <PropertyRef Name="ProcessID" />
+      <Principal Role="tblUsers">
+        <PropertyRef Name="UsersID" />
       </Principal>
       <Dependent Role="tblUserProcess">
-        <PropertyRef Name="ProcessID" />
+        <PropertyRef Name="UsersID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

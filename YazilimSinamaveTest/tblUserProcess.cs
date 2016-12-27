@@ -19,8 +19,7 @@ namespace YazilimSinamaveTest
         public Nullable<int> ProcessID { get; set; }
         public Nullable<int> UserRolesID { get; set; }
     
-        public virtual tblUsers tblUsers { get; set; }
-        public virtual tblUserRoles tblUserRoles { get; set; }
         public virtual tblProcess tblProcess { get; set; }
+        public virtual tblUsers tblUsers { get; set; }
     }
 }

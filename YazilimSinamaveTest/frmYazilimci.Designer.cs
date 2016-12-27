@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewGorevler = new System.Windows.Forms.DataGridView();
             this.gorevID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gorevadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,9 +65,10 @@
             // 
             this.dataGridViewGorevler.AllowUserToAddRows = false;
             this.dataGridViewGorevler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dataGridViewGorevler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewGorevler.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewGorevler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGorevler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridViewGorevler.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
             this.dataGridViewGorevler.BackgroundColor = System.Drawing.Color.Lavender;
@@ -345,6 +346,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 470);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBoxGörev);
             this.Controls.Add(this.dataGridViewGorevler);
             this.Name = "frmYazilimci";

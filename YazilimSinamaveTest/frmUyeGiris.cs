@@ -39,6 +39,12 @@ namespace YazilimSinamaveTest
                 {
                     frmRolSecimi frmrol = new frmRolSecimi();
                     uyeID = db.tblUsers.FirstOrDefault(x => x.UserNickname == txtKulAdi.Text && x.UserPassword == txtSifre.Text).UsersID;
+                        tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                        log.LogDate = DateTime.Now;
+                        log.UserLogDescription = "Üye Girişi Yaptı";
+                        log.Username = txtKulAdi.Text;
+                        db.tblUserLogDetails.Add(log);
+                        db.SaveChanges();
                     this.Hide();
                     frmrol.Show();
                 }

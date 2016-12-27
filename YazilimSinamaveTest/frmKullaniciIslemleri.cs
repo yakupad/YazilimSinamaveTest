@@ -63,11 +63,23 @@ namespace YazilimSinamaveTest
                 rol.RoleNameID = 2;
                 db.tblUserRoles.Add(rol);
                 db.SaveChanges();
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = userID+ "'li Üyenin rolünü müşteri olarak değiştirdi.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
+                db.SaveChanges();
             }
             else
             {
                 tblUserRoles rol = db.tblUserRoles.Where(x=>x.RoleNameID==2&&x.UserID==userID).FirstOrDefault();
                 db.tblUserRoles.Remove(rol);
+                db.SaveChanges();
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = userID + "'li Üyenin rolünü müşteri olmaktan çıkardı.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
             }
                 
@@ -82,11 +94,23 @@ namespace YazilimSinamaveTest
                 rol.RoleNameID = 1;
                 db.tblUserRoles.Add(rol);
                 db.SaveChanges();
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = userID + "'li Üyenin rolünü yazılımcı olarak değiştirdi.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
+                db.SaveChanges();
             }
             else
             {
                 tblUserRoles rol = db.tblUserRoles.Where(x => x.RoleNameID == 1 && x.UserID == userID).FirstOrDefault();
                 db.tblUserRoles.Remove(rol);
+                db.SaveChanges();
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = userID + "'li Üyenin rolünü yazılımcı olmaktan çıkardı.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
             }
         }
@@ -100,11 +124,23 @@ namespace YazilimSinamaveTest
                 rol.RoleNameID = 3;
                 db.tblUserRoles.Add(rol);
                 db.SaveChanges();
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = userID + "'li Üyenin rolünü yönetici olarak değiştirdi.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
+                db.SaveChanges();
             }
             else
             {
                 tblUserRoles rol = db.tblUserRoles.Where(x => x.RoleNameID == 3 && x.UserID == userID).FirstOrDefault();
                 db.tblUserRoles.Remove(rol);
+                db.SaveChanges();
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = userID + "'li Üyenin rolünü yönetici olmaktan çıkardı.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
             }
         }

@@ -16,8 +16,9 @@ namespace YazilimSinamaveTest
     {
         public int UserLogDetailsID { get; set; }
         public Nullable<int> UserLogsID { get; set; }
-        public string UserLogName { get; set; }
+        public string UserLogDescription { get; set; }
         public Nullable<System.DateTime> LogDate { get; set; }
+        public string Username { get; set; }
     
         public virtual tblUserLogs tblUserLogs { get; set; }
     }
