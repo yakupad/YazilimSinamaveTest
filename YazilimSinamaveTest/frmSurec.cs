@@ -311,9 +311,9 @@ namespace YazilimSinamaveTest
                     procedureekle.WorkFollowName = lblProcedure.Text;
                     procedureekle.UserID = db.tblUsers.FirstOrDefault(x => x.UserNickname == comboBoxProcedure.SelectedItem.ToString()).UsersID;
                     db.tblWorkFollow.Add(procedureekle);
-                    db.SaveChanges();
+                    db.SaveChanges(); 
                 }
-            }
+            }//deneme
         }
 
         private void btnDllListEkle_Click(object sender, EventArgs e)
