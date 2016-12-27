@@ -30,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Tüm Görevler");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Tüm Görevler");
             this.treeViewGorevler = new System.Windows.Forms.TreeView();
             this.btnGorevEkle = new System.Windows.Forms.Button();
             this.groupBoxIslemler = new System.Windows.Forms.GroupBox();
@@ -69,6 +69,7 @@
             this.cmbProjeler = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnKulIslemleri = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.groupBoxIslemler.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,10 +77,10 @@
             // 
             this.treeViewGorevler.Location = new System.Drawing.Point(12, 53);
             this.treeViewGorevler.Name = "treeViewGorevler";
-            treeNode2.Name = "0";
-            treeNode2.Text = "Tüm Görevler";
+            treeNode1.Name = "0";
+            treeNode1.Text = "Tüm Görevler";
             this.treeViewGorevler.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeViewGorevler.Size = new System.Drawing.Size(259, 375);
             this.treeViewGorevler.TabIndex = 0;
             this.treeViewGorevler.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewGorevler_NodeMouseClick);
@@ -452,13 +453,28 @@
             this.btnKulIslemleri.UseVisualStyleBackColor = true;
             this.btnKulIslemleri.Click += new System.EventHandler(this.btnKulIslemleri_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImage = global::YazilimSinamaveTest.Properties.Resources.Back_icon;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.PanWest;
+            this.btnBack.ForeColor = System.Drawing.Color.Transparent;
+            this.btnBack.Location = new System.Drawing.Point(12, 428);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(31, 24);
+            this.btnBack.TabIndex = 23;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // frmYonetici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::YazilimSinamaveTest.Properties.Resources.bck;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(850, 442);
+            this.ClientSize = new System.Drawing.Size(850, 453);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnKulIslemleri);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbProjeler);
@@ -515,5 +531,6 @@
         private System.Windows.Forms.Label lblTOrani;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnKulIslemleri;
+        private System.Windows.Forms.Button btnBack;
     }
 }

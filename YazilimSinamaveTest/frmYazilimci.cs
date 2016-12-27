@@ -146,5 +146,12 @@ namespace YazilimSinamaveTest
         {
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmRolSecimi _temp = new frmRolSecimi();
+            _temp.Show();
+        }
     }
 }

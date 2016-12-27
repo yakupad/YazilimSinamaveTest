@@ -56,6 +56,7 @@
             this.lblGorevAdi = new System.Windows.Forms.Label();
             this.progressBarTorani = new System.Windows.Forms.ProgressBar();
             this.trackBarTorani = new System.Windows.Forms.TrackBar();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGorevler)).BeginInit();
             this.groupBoxGörev.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTorani)).BeginInit();
@@ -65,7 +66,6 @@
             // 
             this.dataGridViewGorevler.AllowUserToAddRows = false;
             this.dataGridViewGorevler.AllowUserToDeleteRows = false;
-            this.dataGridViewGorevler.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dataGridViewGorevler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -341,11 +341,26 @@
             this.trackBarTorani.Scroll += new System.EventHandler(this.trackBarTorani_Scroll);
             this.trackBarTorani.ValueChanged += new System.EventHandler(this.trackBarTorani_ValueChanged);
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImage = global::YazilimSinamaveTest.Properties.Resources.Back_icon;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.PanWest;
+            this.btnBack.ForeColor = System.Drawing.Color.Transparent;
+            this.btnBack.Location = new System.Drawing.Point(10, 462);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(31, 24);
+            this.btnBack.TabIndex = 23;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // frmYazilimci
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 470);
+            this.ClientSize = new System.Drawing.Size(933, 488);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.groupBoxGörev);
             this.Controls.Add(this.dataGridViewGorevler);
             this.Name = "frmYazilimci";
@@ -387,5 +402,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn notes;
         private System.Windows.Forms.DataGridViewTextBoxColumn aciklamalar;
         private System.Windows.Forms.DataGridViewTextBoxColumn müsteri;
+        private System.Windows.Forms.Button btnBack;
     }
 }
