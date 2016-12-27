@@ -417,7 +417,7 @@
             this.MaximizeBox = false;
             this.Name = "frmMusteri";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMusteri";
+            this.Text = "Müşteri";
             this.Load += new System.EventHandler(this.frmMusteri_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtButce2)).EndInit();
