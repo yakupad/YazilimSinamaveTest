@@ -92,6 +92,13 @@ namespace YazilimSinamaveTest
                 proje.ProjectUserName = db.tblUsers.FirstOrDefault(x => x.UserNickname == cmbProjeYöneticisi.SelectedItem.ToString()).UserNickname;
                 db.tblProjects.Add(proje);
                 db.SaveChanges();
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = "Proje Ekledi.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
+                db.SaveChanges();
+
 
 
                 DataGridDoldur();
@@ -182,6 +189,12 @@ namespace YazilimSinamaveTest
                 guncellenicekproje.StartDate = dtpBitisTarihi.Value;
 
                 db.SaveChanges();
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = "Projeyi güncelledi.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
+                db.SaveChanges();
                 DataGridDoldur();
 
                 MessageBox.Show("Projeniz Güncellendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -213,7 +226,13 @@ namespace YazilimSinamaveTest
                 tblProjects silinecekproje = db.tblProjects.Where(x => x.ProjectID == projeID).FirstOrDefault();
                 db.tblProjects.Remove(silinecekproje);
                 db.SaveChanges();
-                DataGridDoldur();
+            tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+            log.LogDate = DateTime.Now;
+            log.UserLogDescription = "Projeyi sildi.";
+            log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+            db.tblUserLogDetails.Add(log);
+            db.SaveChanges();
+            DataGridDoldur();
 
                 MessageBox.Show("Projeniz Silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             AlanlariSifirla();
