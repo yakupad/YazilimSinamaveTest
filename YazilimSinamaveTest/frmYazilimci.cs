@@ -14,15 +14,24 @@ namespace YazilimSinamaveTest
     {
         public frmYazilimci()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bir şeyler oldu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         yazilimsinamaEntities db = new yazilimsinamaEntities();
         private void frmYazilimci_Load(object sender, EventArgs e)
         {
-
-            foreach (var item in db.tblUserProcess.Where(x => x.tblUsers.UsersID == frmUyeGiris.uyeID))
+            try
             {
+                foreach (var item in db.tblUserProcess.Where(x => x.tblUsers.UsersID == frmUyeGiris.uyeID))
+                {
                 if (db.tblProcess.Any(x => x.ProcessID == item.ProcessID))
                 {
                     tblProcess yazilimciningorevi = db.tblProcess.FirstOrDefault(x => x.ProcessID == item.ProcessID);
@@ -43,24 +52,29 @@ namespace YazilimSinamaveTest
                     row.Cells[10].Value = db.tblUsers.FirstOrDefault(x => x.UsersID == yazilimciningorevi.CreateUserID).UserNickname;
                 }
             }
- 
-           
-           
-
-            
-        
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bir şeyler oldu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void trackBarTorani_ValueChanged(object sender, EventArgs e)
         {
-           
-            progressBarTorani.Value = trackBarTorani.Value;
-            lblYuzde.Text = "%"+progressBarTorani.Value;
-            tblProcess yuzdedegistir = db.tblProcess.Where(x => x.ProcessID == ProcessID).FirstOrDefault();
-            yuzdedegistir.CompleteRate = progressBarTorani.Value;
-            db.SaveChanges();
-            dataGridViewGorevler.Rows[IndexRow].Cells[6].Value = trackBarTorani.Value;
+            try
+            {
+                progressBarTorani.Value = trackBarTorani.Value;
+                lblYuzde.Text = "%"+progressBarTorani.Value;
+                tblProcess yuzdedegistir = db.tblProcess.Where(x => x.ProcessID == ProcessID).FirstOrDefault();
+                yuzdedegistir.CompleteRate = progressBarTorani.Value;
+                db.SaveChanges();
+                dataGridViewGorevler.Rows[IndexRow].Cells[6].Value = trackBarTorani.Value;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bir şeyler oldu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -76,27 +90,46 @@ namespace YazilimSinamaveTest
         int ProcessID;
         private void dataGridViewGorevler_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            groupBoxGörev.Enabled = true;
-            IndexRow = e.RowIndex;
-            DataGridViewRow row = dataGridViewGorevler.Rows[IndexRow];
-
-            
-            ProcessID = Convert.ToInt32(row.Cells[0].Value);
-            lblProjeAdi.Text = "Proje Adı: " + row.Cells[2].Value.ToString();
-            lblToplamSure.Text = "Toplam Süre: " + row.Cells[5].Value+" Gün";
-            lblMusteriAdi.Text = "Müşteri Adı: " + row.Cells[10].Value;
-            lblOncelik.Text = "Öncelik:" + row.Cells[7].Value;
-            lblGorevAdi.Text = "Görev Adı: " + row.Cells[1].Value;
-            richTextBoxAciklama.Text = row.Cells[9].Value.ToString();
-            richTextBoxNotlar.Text = row.Cells[8].Value.ToString();
-            int yuzde =Convert.ToInt32(row.Cells[6].Value);
-            trackBarTorani.Value = yuzde;
-           
+            try
+            {
+                    groupBoxGörev.Enabled = true;
+                    IndexRow = e.RowIndex;
+                    if (IndexRow == -1)
+                    {
+                            //DataGridViewde başlığa tıklayınca tepki vermeyecek
+                    }
+                    else
+                    {
+                        DataGridViewRow row = dataGridViewGorevler.Rows[IndexRow];
+                        ProcessID = Convert.ToInt32(row.Cells[0].Value);
+                        lblProjeAdi.Text = "Proje Adı: " + row.Cells[2].Value.ToString();
+                        lblToplamSure.Text = "Toplam Süre: " + row.Cells[5].Value + " Gün";
+                        lblMusteriAdi.Text = "Müşteri Adı: " + row.Cells[10].Value;
+                        lblOncelik.Text = "Öncelik:" + row.Cells[7].Value;
+                        lblGorevAdi.Text = "Görev Adı: " + row.Cells[1].Value;
+                        richTextBoxAciklama.Text = row.Cells[9].Value.ToString();
+                        richTextBoxNotlar.Text = row.Cells[8].Value.ToString();
+                        int yuzde = Convert.ToInt32(row.Cells[6].Value);
+                        trackBarTorani.Value = yuzde;
+                    }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bir şeyler oldu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void rbTamamlandi_CheckedChanged(object sender, EventArgs e)
         {
-            trackBarTorani.Value = 100;
+            try
+            {
+                trackBarTorani.Value = 100;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bir şeyler oldu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void lblYuzde_Click(object sender, EventArgs e)

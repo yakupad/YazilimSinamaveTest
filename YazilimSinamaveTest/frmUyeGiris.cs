@@ -12,9 +12,7 @@ namespace YazilimSinamaveTest
 {
     public partial class frmUyeGiris : Form
     {
-        
        
- 
         public frmUyeGiris()
         {
             try
@@ -46,13 +44,13 @@ namespace YazilimSinamaveTest
                 }
                 else
                 {
-                    MessageBox.Show("Giriş Yapılamadı");
+                    MessageBox.Show("Giriş Yapılamadı","Hata!",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
 
             }
             else
             {
-                MessageBox.Show("Lütfen Kullanıcı Adı Ve Şifre Alanını Boş Bırakmayınız!!!");
+                MessageBox.Show("Lütfen Kullanıcı Adı Ve Şifre Alanını Boş Bırakmayınız!!!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             }
             catch (Exception ex)
