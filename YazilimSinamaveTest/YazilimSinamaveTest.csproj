@@ -115,6 +115,12 @@
     <Compile Include="frmKullaniciIslemleri.Designer.cs">
       <DependentUpon>frmKullaniciIslemleri.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLog.Designer.cs">
+      <DependentUpon>frmLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMusteri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </Compile>
     <EmbeddedResource Include="frmKullaniciIslemleri.resx">
       <DependentUpon>frmKullaniciIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLog.resx">
+      <DependentUpon>frmLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMusteri.resx">
       <DependentUpon>frmMusteri.cs</DependentUpon>
