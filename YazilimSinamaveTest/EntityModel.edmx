@@ -1,0 +1,890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="yazilimsinamaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblProcess">
+          <Key>
+            <PropertyRef Name="ProcessID" />
+          </Key>
+          <Property Name="ProcessID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProcessName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProjectID" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="FinishDate" Type="datetime" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="CompleteRate" Type="int" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Descriptions" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblProjects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="100" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="FinishDate" Type="datetime" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="Budget" Type="money" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="ProjectUserID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Description" Type="text" />
+          <Property Name="CreateUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectUserName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblRoleNames">
+          <Key>
+            <PropertyRef Name="RoleNameID" />
+          </Key>
+          <Property Name="RoleNameID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblUserLogDetails">
+          <Key>
+            <PropertyRef Name="UserLogDetailsID" />
+          </Key>
+          <Property Name="UserLogDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserLogsID" Type="int" />
+          <Property Name="UserLogName" Type="nvarchar" MaxLength="200" />
+          <Property Name="LogDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblUserLogs">
+          <Key>
+            <PropertyRef Name="UserLogsID" />
+          </Key>
+          <Property Name="UserLogsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserLogDetailsID" Type="nchar" MaxLength="10" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUserProcess">
+          <Key>
+            <PropertyRef Name="userProcessID" />
+          </Key>
+          <Property Name="userProcessID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsersID" Type="int" />
+          <Property Name="ProcessID" Type="int" />
+          <Property Name="UserRolesID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUserRoles">
+          <Key>
+            <PropertyRef Name="UserRolesID" />
+          </Key>
+          <Property Name="UserRolesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="RoleNameID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="UsersID" />
+          </Key>
+          <Property Name="UsersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserNickname" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserCreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblWorkFollow">
+          <Key>
+            <PropertyRef Name="WorkFollowID" />
+          </Key>
+          <Property Name="WorkFollowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProcessID" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="FinishDate" Type="datetime" />
+          <Property Name="WorkFollowName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="CompleteRate" Type="int" />
+          <Property Name="CompletedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="fk">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblUserProcess" Type="Self.tblUserProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblUserProcess">
+              <PropertyRef Name="UsersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_b">
+          <End Role="tblProcess" Type="Self.tblProcess" Multiplicity="0..1" />
+          <End Role="tblProcess1" Type="Self.tblProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProcess">
+              <PropertyRef Name="ProcessID" />
+            </Principal>
+            <Dependent Role="tblProcess1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProcess_tblUsers">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblProcess" Type="Self.tblProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblProcess">
+              <PropertyRef Name="CreateUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProcessProcessID_tblProcessParentID">
+          <End Role="tblProcess" Type="Self.tblProcess" Multiplicity="0..1" />
+          <End Role="tblProcess1" Type="Self.tblProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProcess">
+              <PropertyRef Name="ProcessID" />
+            </Principal>
+            <Dependent Role="tblProcess1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProcessProcessID_WorkFollowProcessID">
+          <End Role="tblProcess" Type="Self.tblProcess" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblWorkFollow" Type="Self.tblWorkFollow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProcess">
+              <PropertyRef Name="ProcessID" />
+            </Principal>
+            <Dependent Role="tblWorkFollow">
+              <PropertyRef Name="ProcessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjects_tblUsers">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblProjects" Type="Self.tblProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblProjects">
+              <PropertyRef Name="CreateUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjects_tblUsers1">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblProjects" Type="Self.tblProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblProjects">
+              <PropertyRef Name="ProjectUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectsProjectID_tblProcessProjectID">
+          <End Role="tblProjects" Type="Self.tblProjects" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblProcess" Type="Self.tblProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="tblProcess">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserLogsUserLogsID_tblUserLogDetailsUserLogsID">
+          <End Role="tblUserLogs" Type="Self.tblUserLogs" Multiplicity="0..1" />
+          <End Role="tblUserLogDetails" Type="Self.tblUserLogDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserLogs">
+              <PropertyRef Name="UserLogsID" />
+            </Principal>
+            <Dependent Role="tblUserLogDetails">
+              <PropertyRef Name="UserLogsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserRoles_tblRoleNames">
+          <End Role="tblRoleNames" Type="Self.tblRoleNames" Multiplicity="0..1" />
+          <End Role="tblUserRoles" Type="Self.tblUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoleNames">
+              <PropertyRef Name="RoleNameID" />
+            </Principal>
+            <Dependent Role="tblUserRoles">
+              <PropertyRef Name="RoleNameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserRoles_tblUsers">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblUserRoles" Type="Self.tblUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblUserRoles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUsersUserID_WorkFollowUserID">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblWorkFollow" Type="Self.tblWorkFollow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblWorkFollow">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUsersUsersID_tblUserLogsUserID">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblUserLogs" Type="Self.tblUserLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblUserLogs">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkss">
+          <End Role="tblUserRoles" Type="Self.tblUserRoles" Multiplicity="0..1" />
+          <End Role="tblUserProcess" Type="Self.tblUserProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserRoles">
+              <PropertyRef Name="UserRolesID" />
+            </Principal>
+            <Dependent Role="tblUserProcess">
+              <PropertyRef Name="UserRolesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="up_p">
+          <End Role="tblProcess" Type="Self.tblProcess" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUserProcess" Type="Self.tblUserProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProcess">
+              <PropertyRef Name="ProcessID" />
+            </Principal>
+            <Dependent Role="tblUserProcess">
+              <PropertyRef Name="ProcessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="yazilimsinamaModelStoreContainer">
+          <EntitySet Name="tblProcess" EntityType="Self.tblProcess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProjects" EntityType="Self.tblProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRoleNames" EntityType="Self.tblRoleNames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserLogDetails" EntityType="Self.tblUserLogDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserLogs" EntityType="Self.tblUserLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserProcess" EntityType="Self.tblUserProcess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserRoles" EntityType="Self.tblUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblWorkFollow" EntityType="Self.tblWorkFollow" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk" Association="Self.fk">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblUserProcess" EntitySet="tblUserProcess" />
+          </AssociationSet>
+          <AssociationSet Name="fk_b" Association="Self.fk_b">
+            <End Role="tblProcess" EntitySet="tblProcess" />
+            <End Role="tblProcess1" EntitySet="tblProcess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProcess_tblUsers" Association="Self.FK_tblProcess_tblUsers">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblProcess" EntitySet="tblProcess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProcessProcessID_tblProcessParentID" Association="Self.FK_tblProcessProcessID_tblProcessParentID">
+            <End Role="tblProcess" EntitySet="tblProcess" />
+            <End Role="tblProcess1" EntitySet="tblProcess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProcessProcessID_WorkFollowProcessID" Association="Self.FK_tblProcessProcessID_WorkFollowProcessID">
+            <End Role="tblProcess" EntitySet="tblProcess" />
+            <End Role="tblWorkFollow" EntitySet="tblWorkFollow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjects_tblUsers" Association="Self.FK_tblProjects_tblUsers">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblProjects" EntitySet="tblProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjects_tblUsers1" Association="Self.FK_tblProjects_tblUsers1">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblProjects" EntitySet="tblProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectsProjectID_tblProcessProjectID" Association="Self.FK_tblProjectsProjectID_tblProcessProjectID">
+            <End Role="tblProjects" EntitySet="tblProjects" />
+            <End Role="tblProcess" EntitySet="tblProcess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserLogsUserLogsID_tblUserLogDetailsUserLogsID" Association="Self.FK_tblUserLogsUserLogsID_tblUserLogDetailsUserLogsID">
+            <End Role="tblUserLogs" EntitySet="tblUserLogs" />
+            <End Role="tblUserLogDetails" EntitySet="tblUserLogDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserRoles_tblRoleNames" Association="Self.FK_tblUserRoles_tblRoleNames">
+            <End Role="tblRoleNames" EntitySet="tblRoleNames" />
+            <End Role="tblUserRoles" EntitySet="tblUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserRoles_tblUsers" Association="Self.FK_tblUserRoles_tblUsers">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblUserRoles" EntitySet="tblUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUsersUserID_WorkFollowUserID" Association="Self.FK_tblUsersUserID_WorkFollowUserID">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblWorkFollow" EntitySet="tblWorkFollow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUsersUsersID_tblUserLogsUserID" Association="Self.FK_tblUsersUsersID_tblUserLogsUserID">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblUserLogs" EntitySet="tblUserLogs" />
+          </AssociationSet>
+          <AssociationSet Name="fkss" Association="Self.fkss">
+            <End Role="tblUserRoles" EntitySet="tblUserRoles" />
+            <End Role="tblUserProcess" EntitySet="tblUserProcess" />
+          </AssociationSet>
+          <AssociationSet Name="up_p" Association="Self.up_p">
+            <End Role="tblProcess" EntitySet="tblProcess" />
+            <End Role="tblUserProcess" EntitySet="tblUserProcess" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="yazilimsinamaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="yazilimsinamaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblProcess" EntityType="yazilimsinamaModel.tblProcess" />
+          <EntitySet Name="tblProjects" EntityType="yazilimsinamaModel.tblProjects" />
+          <EntitySet Name="tblRoleNames" EntityType="yazilimsinamaModel.tblRoleNames" />
+          <EntitySet Name="tblUserLogDetails" EntityType="yazilimsinamaModel.tblUserLogDetails" />
+          <EntitySet Name="tblUserLogs" EntityType="yazilimsinamaModel.tblUserLogs" />
+          <EntitySet Name="tblUserProcess" EntityType="yazilimsinamaModel.tblUserProcess" />
+          <EntitySet Name="tblUserRoles" EntityType="yazilimsinamaModel.tblUserRoles" />
+          <EntitySet Name="tblUsers" EntityType="yazilimsinamaModel.tblUsers" />
+          <EntitySet Name="tblWorkFollow" EntityType="yazilimsinamaModel.tblWorkFollow" />
+          <AssociationSet Name="fk_b" Association="yazilimsinamaModel.fk_b">
+            <End Role="tblProcess" EntitySet="tblProcess" />
+            <End Role="tblProcess1" EntitySet="tblProcess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProcess_tblUsers" Association="yazilimsinamaModel.FK_tblProcess_tblUsers">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblProcess" EntitySet="tblProcess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProcessProcessID_tblProcessParentID" Association="yazilimsinamaModel.FK_tblProcessProcessID_tblProcessParentID">
+            <End Role="tblProcess" EntitySet="tblProcess" />
+            <End Role="tblProcess1" EntitySet="tblProcess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProcessProcessID_WorkFollowProcessID" Association="yazilimsinamaModel.FK_tblProcessProcessID_WorkFollowProcessID">
+            <End Role="tblProcess" EntitySet="tblProcess" />
+            <End Role="tblWorkFollow" EntitySet="tblWorkFollow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectsProjectID_tblProcessProjectID" Association="yazilimsinamaModel.FK_tblProjectsProjectID_tblProcessProjectID">
+            <End Role="tblProjects" EntitySet="tblProjects" />
+            <End Role="tblProcess" EntitySet="tblProcess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjects_tblUsers" Association="yazilimsinamaModel.FK_tblProjects_tblUsers">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblProjects" EntitySet="tblProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjects_tblUsers1" Association="yazilimsinamaModel.FK_tblProjects_tblUsers1">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblProjects" EntitySet="tblProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserRoles_tblRoleNames" Association="yazilimsinamaModel.FK_tblUserRoles_tblRoleNames">
+            <End Role="tblRoleNames" EntitySet="tblRoleNames" />
+            <End Role="tblUserRoles" EntitySet="tblUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserLogsUserLogsID_tblUserLogDetailsUserLogsID" Association="yazilimsinamaModel.FK_tblUserLogsUserLogsID_tblUserLogDetailsUserLogsID">
+            <End Role="tblUserLogs" EntitySet="tblUserLogs" />
+            <End Role="tblUserLogDetails" EntitySet="tblUserLogDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUsersUsersID_tblUserLogsUserID" Association="yazilimsinamaModel.FK_tblUsersUsersID_tblUserLogsUserID">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblUserLogs" EntitySet="tblUserLogs" />
+          </AssociationSet>
+          <AssociationSet Name="fk" Association="yazilimsinamaModel.fk">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblUserProcess" EntitySet="tblUserProcess" />
+          </AssociationSet>
+          <AssociationSet Name="fkss" Association="yazilimsinamaModel.fkss">
+            <End Role="tblUserRoles" EntitySet="tblUserRoles" />
+            <End Role="tblUserProcess" EntitySet="tblUserProcess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserRoles_tblUsers" Association="yazilimsinamaModel.FK_tblUserRoles_tblUsers">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblUserRoles" EntitySet="tblUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUsersUserID_WorkFollowUserID" Association="yazilimsinamaModel.FK_tblUsersUserID_WorkFollowUserID">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblWorkFollow" EntitySet="tblWorkFollow" />
+          </AssociationSet>
+          <AssociationSet Name="up_p" Association="yazilimsinamaModel.up_p">
+            <End Role="tblProcess" EntitySet="tblProcess" />
+            <End Role="tblUserProcess" EntitySet="tblUserProcess" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblProcess">
+          <Key>
+            <PropertyRef Name="ProcessID" />
+          </Key>
+          <Property Name="ProcessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProcessName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="FinishDate" Type="DateTime" Precision="3" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="CompleteRate" Type="Int32" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Descriptions" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblProcess1" Relationship="yazilimsinamaModel.fk_b" FromRole="tblProcess" ToRole="tblProcess1" />
+          <NavigationProperty Name="tblProcess2" Relationship="yazilimsinamaModel.fk_b" FromRole="tblProcess1" ToRole="tblProcess" />
+          <NavigationProperty Name="tblUsers" Relationship="yazilimsinamaModel.FK_tblProcess_tblUsers" FromRole="tblProcess" ToRole="tblUsers" />
+          <NavigationProperty Name="tblProcess11" Relationship="yazilimsinamaModel.FK_tblProcessProcessID_tblProcessParentID" FromRole="tblProcess" ToRole="tblProcess1" />
+          <NavigationProperty Name="tblProcess3" Relationship="yazilimsinamaModel.FK_tblProcessProcessID_tblProcessParentID" FromRole="tblProcess1" ToRole="tblProcess" />
+          <NavigationProperty Name="tblWorkFollow" Relationship="yazilimsinamaModel.FK_tblProcessProcessID_WorkFollowProcessID" FromRole="tblProcess" ToRole="tblWorkFollow" />
+          <NavigationProperty Name="tblProjects" Relationship="yazilimsinamaModel.FK_tblProjectsProjectID_tblProcessProjectID" FromRole="tblProcess" ToRole="tblProjects" />
+          <NavigationProperty Name="tblUserProcess" Relationship="yazilimsinamaModel.up_p" FromRole="tblProcess" ToRole="tblUserProcess" />
+        </EntityType>
+        <EntityType Name="tblProjects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="FinishDate" Type="DateTime" Precision="3" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="Budget" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="ProjectUserID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblProcess" Relationship="yazilimsinamaModel.FK_tblProjectsProjectID_tblProcessProjectID" FromRole="tblProjects" ToRole="tblProcess" />
+          <NavigationProperty Name="tblUsers" Relationship="yazilimsinamaModel.FK_tblProjects_tblUsers" FromRole="tblProjects" ToRole="tblUsers" />
+          <NavigationProperty Name="tblUsers1" Relationship="yazilimsinamaModel.FK_tblProjects_tblUsers1" FromRole="tblProjects" ToRole="tblUsers" />
+        </EntityType>
+        <EntityType Name="tblRoleNames">
+          <Key>
+            <PropertyRef Name="RoleNameID" />
+          </Key>
+          <Property Name="RoleNameID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUserRoles" Relationship="yazilimsinamaModel.FK_tblUserRoles_tblRoleNames" FromRole="tblRoleNames" ToRole="tblUserRoles" />
+        </EntityType>
+        <EntityType Name="tblUserLogDetails">
+          <Key>
+            <PropertyRef Name="UserLogDetailsID" />
+          </Key>
+          <Property Name="UserLogDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserLogsID" Type="Int32" />
+          <Property Name="UserLogName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LogDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblUserLogs" Relationship="yazilimsinamaModel.FK_tblUserLogsUserLogsID_tblUserLogDetailsUserLogsID" FromRole="tblUserLogDetails" ToRole="tblUserLogs" />
+        </EntityType>
+        <EntityType Name="tblUserLogs">
+          <Key>
+            <PropertyRef Name="UserLogsID" />
+          </Key>
+          <Property Name="UserLogsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserLogDetailsID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="tblUserLogDetails" Relationship="yazilimsinamaModel.FK_tblUserLogsUserLogsID_tblUserLogDetailsUserLogsID" FromRole="tblUserLogs" ToRole="tblUserLogDetails" />
+          <NavigationProperty Name="tblUsers" Relationship="yazilimsinamaModel.FK_tblUsersUsersID_tblUserLogsUserID" FromRole="tblUserLogs" ToRole="tblUsers" />
+        </EntityType>
+        <EntityType Name="tblUserProcess">
+          <Key>
+            <PropertyRef Name="userProcessID" />
+          </Key>
+          <Property Name="userProcessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsersID" Type="Int32" />
+          <Property Name="ProcessID" Type="Int32" />
+          <Property Name="UserRolesID" Type="Int32" />
+          <NavigationProperty Name="tblUsers" Relationship="yazilimsinamaModel.fk" FromRole="tblUserProcess" ToRole="tblUsers" />
+          <NavigationProperty Name="tblUserRoles" Relationship="yazilimsinamaModel.fkss" FromRole="tblUserProcess" ToRole="tblUserRoles" />
+          <NavigationProperty Name="tblProcess" Relationship="yazilimsinamaModel.up_p" FromRole="tblUserProcess" ToRole="tblProcess" />
+        </EntityType>
+        <EntityType Name="tblUserRoles">
+          <Key>
+            <PropertyRef Name="UserRolesID" />
+          </Key>
+          <Property Name="UserRolesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="RoleNameID" Type="Int32" />
+          <NavigationProperty Name="tblRoleNames" Relationship="yazilimsinamaModel.FK_tblUserRoles_tblRoleNames" FromRole="tblUserRoles" ToRole="tblRoleNames" />
+          <NavigationProperty Name="tblUserProcess" Relationship="yazilimsinamaModel.fkss" FromRole="tblUserRoles" ToRole="tblUserProcess" />
+          <NavigationProperty Name="tblUsers" Relationship="yazilimsinamaModel.FK_tblUserRoles_tblUsers" FromRole="tblUserRoles" ToRole="tblUsers" />
+        </EntityType>
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="UsersID" />
+          </Key>
+          <Property Name="UsersID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserNickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserCreatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblProcess" Relationship="yazilimsinamaModel.FK_tblProcess_tblUsers" FromRole="tblUsers" ToRole="tblProcess" />
+          <NavigationProperty Name="tblProjects" Relationship="yazilimsinamaModel.FK_tblProjects_tblUsers" FromRole="tblUsers" ToRole="tblProjects" />
+          <NavigationProperty Name="tblProjects1" Relationship="yazilimsinamaModel.FK_tblProjects_tblUsers1" FromRole="tblUsers" ToRole="tblProjects" />
+          <NavigationProperty Name="tblUserLogs" Relationship="yazilimsinamaModel.FK_tblUsersUsersID_tblUserLogsUserID" FromRole="tblUsers" ToRole="tblUserLogs" />
+          <NavigationProperty Name="tblUserProcess" Relationship="yazilimsinamaModel.fk" FromRole="tblUsers" ToRole="tblUserProcess" />
+          <NavigationProperty Name="tblUserRoles" Relationship="yazilimsinamaModel.FK_tblUserRoles_tblUsers" FromRole="tblUsers" ToRole="tblUserRoles" />
+          <NavigationProperty Name="tblWorkFollow" Relationship="yazilimsinamaModel.FK_tblUsersUserID_WorkFollowUserID" FromRole="tblUsers" ToRole="tblWorkFollow" />
+        </EntityType>
+        <EntityType Name="tblWorkFollow">
+          <Key>
+            <PropertyRef Name="WorkFollowID" />
+          </Key>
+          <Property Name="WorkFollowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProcessID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="FinishDate" Type="DateTime" Precision="3" />
+          <Property Name="WorkFollowName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="CompleteRate" Type="Int32" />
+          <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblProcess" Relationship="yazilimsinamaModel.FK_tblProcessProcessID_WorkFollowProcessID" FromRole="tblWorkFollow" ToRole="tblProcess" />
+          <NavigationProperty Name="tblUsers" Relationship="yazilimsinamaModel.FK_tblUsersUserID_WorkFollowUserID" FromRole="tblWorkFollow" ToRole="tblUsers" />
+        </EntityType>
+        <Association Name="fk_b">
+          <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProcess">
+              <PropertyRef Name="ProcessID" />
+            </Principal>
+            <Dependent Role="tblProcess1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProcess_tblUsers">
+          <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblProcess">
+              <PropertyRef Name="CreateUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProcessProcessID_tblProcessParentID">
+          <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProcess">
+              <PropertyRef Name="ProcessID" />
+            </Principal>
+            <Dependent Role="tblProcess1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProcessProcessID_WorkFollowProcessID">
+          <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblWorkFollow" Role="tblWorkFollow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProcess">
+              <PropertyRef Name="ProcessID" />
+            </Principal>
+            <Dependent Role="tblWorkFollow">
+              <PropertyRef Name="ProcessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectsProjectID_tblProcessProjectID">
+          <End Type="yazilimsinamaModel.tblProjects" Role="tblProjects" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="tblProcess">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjects_tblUsers">
+          <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblProjects" Role="tblProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblProjects">
+              <PropertyRef Name="CreateUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjects_tblUsers1">
+          <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblProjects" Role="tblProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblProjects">
+              <PropertyRef Name="ProjectUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserRoles_tblRoleNames">
+          <End Type="yazilimsinamaModel.tblRoleNames" Role="tblRoleNames" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblUserRoles" Role="tblUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoleNames">
+              <PropertyRef Name="RoleNameID" />
+            </Principal>
+            <Dependent Role="tblUserRoles">
+              <PropertyRef Name="RoleNameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserLogsUserLogsID_tblUserLogDetailsUserLogsID">
+          <End Type="yazilimsinamaModel.tblUserLogs" Role="tblUserLogs" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblUserLogDetails" Role="tblUserLogDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserLogs">
+              <PropertyRef Name="UserLogsID" />
+            </Principal>
+            <Dependent Role="tblUserLogDetails">
+              <PropertyRef Name="UserLogsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUsersUsersID_tblUserLogsUserID">
+          <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblUserLogs" Role="tblUserLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblUserLogs">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk">
+          <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblUserProcess" Role="tblUserProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblUserProcess">
+              <PropertyRef Name="UsersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkss">
+          <End Type="yazilimsinamaModel.tblUserRoles" Role="tblUserRoles" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblUserProcess" Role="tblUserProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserRoles">
+              <PropertyRef Name="UserRolesID" />
+            </Principal>
+            <Dependent Role="tblUserProcess">
+              <PropertyRef Name="UserRolesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserRoles_tblUsers">
+          <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblUserRoles" Role="tblUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblUserRoles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUsersUserID_WorkFollowUserID">
+          <End Type="yazilimsinamaModel.tblUsers" Role="tblUsers" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblWorkFollow" Role="tblWorkFollow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UsersID" />
+            </Principal>
+            <Dependent Role="tblWorkFollow">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="up_p">
+          <End Type="yazilimsinamaModel.tblProcess" Role="tblProcess" Multiplicity="0..1" />
+          <End Type="yazilimsinamaModel.tblUserProcess" Role="tblUserProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProcess">
+              <PropertyRef Name="ProcessID" />
+            </Principal>
+            <Dependent Role="tblUserProcess">
+              <PropertyRef Name="ProcessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="yazilimsinamaModelStoreContainer" CdmEntityContainer="yazilimsinamaEntities">
+          <EntitySetMapping Name="tblProcess">
+            <EntityTypeMapping TypeName="yazilimsinamaModel.tblProcess">
+              <MappingFragment StoreEntitySet="tblProcess">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="CompleteRate" ColumnName="CompleteRate" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjects">
+            <EntityTypeMapping TypeName="yazilimsinamaModel.tblProjects">
+              <MappingFragment StoreEntitySet="tblProjects">
+                <ScalarProperty Name="ProjectUserName" ColumnName="ProjectUserName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ProjectUserID" ColumnName="ProjectUserID" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoleNames">
+            <EntityTypeMapping TypeName="yazilimsinamaModel.tblRoleNames">
+              <MappingFragment StoreEntitySet="tblRoleNames">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleNameID" ColumnName="RoleNameID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserLogDetails">
+            <EntityTypeMapping TypeName="yazilimsinamaModel.tblUserLogDetails">
+              <MappingFragment StoreEntitySet="tblUserLogDetails">
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="UserLogName" ColumnName="UserLogName" />
+                <ScalarProperty Name="UserLogsID" ColumnName="UserLogsID" />
+                <ScalarProperty Name="UserLogDetailsID" ColumnName="UserLogDetailsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserLogs">
+            <EntityTypeMapping TypeName="yazilimsinamaModel.tblUserLogs">
+              <MappingFragment StoreEntitySet="tblUserLogs">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserLogDetailsID" ColumnName="UserLogDetailsID" />
+                <ScalarProperty Name="UserLogsID" ColumnName="UserLogsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserProcess">
+            <EntityTypeMapping TypeName="yazilimsinamaModel.tblUserProcess">
+              <MappingFragment StoreEntitySet="tblUserProcess">
+                <ScalarProperty Name="UserRolesID" ColumnName="UserRolesID" />
+                <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+                <ScalarProperty Name="UsersID" ColumnName="UsersID" />
+                <ScalarProperty Name="userProcessID" ColumnName="userProcessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserRoles">
+            <EntityTypeMapping TypeName="yazilimsinamaModel.tblUserRoles">
+              <MappingFragment StoreEntitySet="tblUserRoles">
+                <ScalarProperty Name="RoleNameID" ColumnName="RoleNameID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserRolesID" ColumnName="UserRolesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="yazilimsinamaModel.tblUsers">
+              <MappingFragment StoreEntitySet="tblUsers">
+                <ScalarProperty Name="UserCreatedDate" ColumnName="UserCreatedDate" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserNickname" ColumnName="UserNickname" />
+                <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UsersID" ColumnName="UsersID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblWorkFollow">
+            <EntityTypeMapping TypeName="yazilimsinamaModel.tblWorkFollow">
+              <MappingFragment StoreEntitySet="tblWorkFollow">
+                <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+                <ScalarProperty Name="CompleteRate" ColumnName="CompleteRate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="WorkFollowName" ColumnName="WorkFollowName" />
+                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+                <ScalarProperty Name="WorkFollowID" ColumnName="WorkFollowID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

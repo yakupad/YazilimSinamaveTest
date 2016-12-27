@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="yazilimsinamaModelStoreContainer" CdmEntityContainer="yazilimsinamaEntities">
+    <EntitySetMapping Name="tblProcess">
+      <EntityTypeMapping TypeName="yazilimsinamaModel.tblProcess">
+        <MappingFragment StoreEntitySet="tblProcess">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="CompleteRate" ColumnName="CompleteRate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+          <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjects">
+      <EntityTypeMapping TypeName="yazilimsinamaModel.tblProjects">
+        <MappingFragment StoreEntitySet="tblProjects">
+          <ScalarProperty Name="ProjectUserName" ColumnName="ProjectUserName" />
+          <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ProjectUserID" ColumnName="ProjectUserID" />
+          <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+          <ScalarProperty Name="Budget" ColumnName="Budget" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRoleNames">
+      <EntityTypeMapping TypeName="yazilimsinamaModel.tblRoleNames">
+        <MappingFragment StoreEntitySet="tblRoleNames">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleNameID" ColumnName="RoleNameID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserLogDetails">
+      <EntityTypeMapping TypeName="yazilimsinamaModel.tblUserLogDetails">
+        <MappingFragment StoreEntitySet="tblUserLogDetails">
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="UserLogName" ColumnName="UserLogName" />
+          <ScalarProperty Name="UserLogsID" ColumnName="UserLogsID" />
+          <ScalarProperty Name="UserLogDetailsID" ColumnName="UserLogDetailsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserLogs">
+      <EntityTypeMapping TypeName="yazilimsinamaModel.tblUserLogs">
+        <MappingFragment StoreEntitySet="tblUserLogs">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserLogDetailsID" ColumnName="UserLogDetailsID" />
+          <ScalarProperty Name="UserLogsID" ColumnName="UserLogsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserProcess">
+      <EntityTypeMapping TypeName="yazilimsinamaModel.tblUserProcess">
+        <MappingFragment StoreEntitySet="tblUserProcess">
+          <ScalarProperty Name="UserRolesID" ColumnName="UserRolesID" />
+          <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+          <ScalarProperty Name="UsersID" ColumnName="UsersID" />
+          <ScalarProperty Name="userProcessID" ColumnName="userProcessID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserRoles">
+      <EntityTypeMapping TypeName="yazilimsinamaModel.tblUserRoles">
+        <MappingFragment StoreEntitySet="tblUserRoles">
+          <ScalarProperty Name="RoleNameID" ColumnName="RoleNameID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserRolesID" ColumnName="UserRolesID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="yazilimsinamaModel.tblUsers">
+        <MappingFragment StoreEntitySet="tblUsers">
+          <ScalarProperty Name="UserCreatedDate" ColumnName="UserCreatedDate" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserNickname" ColumnName="UserNickname" />
+          <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UsersID" ColumnName="UsersID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblWorkFollow">
+      <EntityTypeMapping TypeName="yazilimsinamaModel.tblWorkFollow">
+        <MappingFragment StoreEntitySet="tblWorkFollow">
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="CompleteRate" ColumnName="CompleteRate" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="WorkFollowName" ColumnName="WorkFollowName" />
+          <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+          <ScalarProperty Name="WorkFollowID" ColumnName="WorkFollowID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

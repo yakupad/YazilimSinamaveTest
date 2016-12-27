@@ -1,0 +1,389 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DlhSoft.DataFramework</name>
+    </assembly>
+    <members>
+        <member name="T:DlhSoft.DataFramework.BusinessList`1">
+            <summary>
+            Bindable list of business objects that supplementary provides list changing notification, sorting, and key searching features.
+            </summary>
+            <typeparam name="T">Business object type</typeparam>
+        </member>
+        <member name="T:DlhSoft.DataFramework.IBusinessList">
+            <summary>
+            Bindable list of objects that supplementary provides list changing notification event enabling and disabling.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.DataFramework.IRaiseItemChangingEvents">
+            <summary>
+            Provides item changing notification event enabling and disabling support.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.IRaiseItemChangingEvents.RaiseListChangingEvents">
+            <summary>
+            Gets or sets whether to raise list changing events.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataFramework.IBusinessList.ListChanging">
+            <summary>
+            List changing event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessList`1.InsertItem(System.Int32,`0)">
+            <summary>
+            Inserts an item in the list.
+            </summary>
+            <param name="index">Index</param>
+            <param name="item">Item</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessList`1.RemoveItem(System.Int32)">
+            <summary>
+            Removes an item from the list.
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessList`1.SetItem(System.Int32,`0)">
+            <summary>
+            Sets an item in the list.
+            </summary>
+            <param name="index">Index</param>
+            <param name="item">Item</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessList`1.ClearItems">
+            <summary>
+            Clears the list.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessList`1.OnListChanging(DlhSoft.DataFramework.ListChangingEventArgs)">
+            <summary>
+            Raises the ListChanging event.
+            </summary>
+            <param name="e">Arguments</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessList`1.ApplySortCore(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)">
+            <summary>
+            Applies sorting for a specified property, using a specified direction.
+            </summary>
+            <param name="prop">Property</param>
+            <param name="direction">Direction</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessList`1.RemoveSortCore">
+            <summary>
+            Removes sorting for the collection.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessList`1.FindCore(System.ComponentModel.PropertyDescriptor,System.Object)">
+            <summary>
+            Searches the collection for a specified key value, in a specified property.
+            </summary>
+            <param name="prop">Property</param>
+            <param name="key">Key</param>
+            <returns>The index of the found item, or -1 if the item was not found</returns>
+        </member>
+        <member name="E:DlhSoft.DataFramework.BusinessList`1.ListChanging">
+            <summary>
+            List changing event.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.BusinessList`1.RaiseListChangingEvents">
+            <summary>
+            Gets or sets whether to raise list changing events.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.BusinessList`1.SupportsSortingCore">
+            <summary>
+            The collection supports sorting. Returns true.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.BusinessList`1.SortDirectionCore">
+            <summary>
+            Gets the current direction used for sorting.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.BusinessList`1.SortPropertyCore">
+            <summary>
+            Gets the current property used for sorting.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.BusinessList`1.IsSortedCore">
+            <summary>
+            Gets whether the collection is currently sorted.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.BusinessList`1.SupportsSearchingCore">
+            <summary>
+            The collection supports searching. Returns true.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.DataFramework.IBusinessObject">
+            <summary>
+            Object that supports property changing notification, property changed notification, data error information for its properties, editing, and state features.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.DataFramework.INotifyPropertyChanging">
+            <summary>
+            Provides property changing notification support.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataFramework.INotifyPropertyChanging.PropertyChanging">
+            <summary>
+            Raised before a property of the object is changed.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.DataFramework.IStateObject">
+            <summary>
+            Provides support for the edit state on an object.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.IStateObject.EditState">
+            <summary>
+            Gets the edit state of the object.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.DataFramework.BusinessObject">
+            <summary>
+            Base class for objects that support property changing notification, property changed notification, data error information for its properties, editing, and state features.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.OnPropertyChanging(System.String)">
+            <summary>
+            Raises the PropertyChanging event.
+            </summary>
+            <param name="propertyName">The name of the property that is about to change</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.OnPropertyChanged(System.String)">
+            <summary>
+            Raises the PropertyChanged event.
+            </summary>
+            <param name="propertyName">The name of the property that has changed</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.SetError(System.String,System.Object,System.String)">
+            <summary>
+            Sets an error for a specified property of the object.
+            </summary>
+            <param name="propertyName">The property that has an errorneous value</param>
+            <param name="errorneousValue">The errorneous value</param>
+            <param name="errorMessage">The error message for the property</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.ClearError(System.String)">
+            <summary>
+            Clears an error for a specified property of the object.
+            </summary>
+            <param name="propertyName">The property for which to clear the errorneous value</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.HasError(System.String)">
+            <summary>
+            Determines whether or not there is an error for the specified property of the object.
+            </summary>
+            <param name="propertyName">The property to check</param>
+            <returns>Whether or not there is an error</returns>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.GetErrorMessage(System.String)">
+            <summary>
+            Gets the error message for the specified property of the object.
+            </summary>
+            <param name="propertyName">The property to get the error message for</param>
+            <returns>The error message</returns>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.GetErrorneousValue(System.String)">
+            <summary>
+            Gets the errorneous value for the specified property of the object.
+            </summary>
+            <param name="propertyName">The property get the errorneous value for</param>
+            <returns>The errorneous value</returns>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.BeginEdit">
+            <summary>
+            Begins the edit mode for the object.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.CancelEdit">
+            <summary>
+            Cancels the edit mode for the object.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.EndEdit">
+            <summary>
+            Ends the edit mode for the object.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.BeginEdit(System.String[])">
+            <summary>
+            Begins the edit mode for the object, saving the values of the specified properties.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.CancelEdit(System.String[])">
+            <summary>
+            Cancels the edit mode for the object, restoring the values of the specified properties.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.EndEdit(System.String[])">
+            <summary>
+            Ends the edit mode for the object, committing the values of the specified properties.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.InitializeOriginalValues">
+            <summary>
+            Initializes the original values dictionary.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.ClearOriginalValues">
+            <summary>
+            Clears the original values dictionary.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.ClearOriginalValue(System.String)">
+            <summary>
+            Clears the value of the specified property of the object from the original values dictionary.
+            </summary>
+            <param name="propertyName">The property to clear the value for</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.SetOriginalValue(System.String,System.Object)">
+            <summary>
+            Sets the original value for the specified property of the object.
+            </summary>
+            <param name="propertyName">The property to set the value for</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.HasOriginalValue(System.String)">
+            <summary>
+            Determines whether or not there is a stored value for the specified property of the object in the original values dictionary.
+            </summary>
+            <param name="propertyName">The property to check</param>
+            <returns>Whether or not there is a stored value</returns>
+        </member>
+        <member name="M:DlhSoft.DataFramework.BusinessObject.GetOriginalValue(System.String)">
+            <summary>
+            Gets the stored value for the specified property of the object from the original values dictionary.
+            </summary>
+            <param name="propertyName">The property to get the stored value for</param>
+            <returns>The stored value</returns>
+        </member>
+        <member name="E:DlhSoft.DataFramework.BusinessObject.PropertyChanging">
+            <summary>
+            Property changing event.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataFramework.BusinessObject.PropertyChanged">
+            <summary>
+            Property changed event.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.BusinessObject.Error">
+            <summary>
+            Returns the error message of the object.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.BusinessObject.Item(System.String)">
+            <summary>
+            Returns the error message of the specified property of the object.
+            </summary>
+            <param name="propertyName">The name of the property for which to retreive the error messae</param>
+            <returns></returns>
+        </member>
+        <member name="P:DlhSoft.DataFramework.BusinessObject.EditState">
+            <summary>
+            Gets the edit state of the object.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.DataFramework.PropertyChangingEventHandler">
+            <summary>
+            Property changing event handler delegate.
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="e">Arguments</param>
+        </member>
+        <member name="T:DlhSoft.DataFramework.PropertyChangingEventArgs">
+            <summary>
+            Property changing event arguments.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.PropertyChangingEventArgs.#ctor(System.String)">
+            <summary>
+            Creates an instance of the property changing event arguments class.
+            </summary>
+            <param name="propertyName">The name of the property that is about to change</param>
+        </member>
+        <member name="P:DlhSoft.DataFramework.PropertyChangingEventArgs.PropertyName">
+            <summary>
+            Gets the name of the property that is about to change.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.DataFramework.EditState">
+            <summary>
+            Edit state enumeration.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.DataFramework.EditState.Unchanged">
+            <summary>
+            The object is unchanged since it was created.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.DataFramework.EditState.Editing">
+            <summary>
+            The object is currently in edit mode.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.DataFramework.EditState.Changed">
+            <summary>
+            The object has been edited and may have been changed.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.DataFramework.ListChangingEventHandler">
+            <summary>
+            List changing event handler delegate.
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="e">Arguments</param>
+        </member>
+        <member name="T:DlhSoft.DataFramework.ListChangingEventArgs">
+            <summary>
+            List changing event arguments.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataFramework.ListChangingEventArgs.#ctor(DlhSoft.DataFramework.ListChangingType,System.Int32,System.String)">
+            <summary>
+            Creates an instance of the list changing event arguments class.
+            </summary>
+            <param name="listChangingType">The list changing type</param>
+            <param name="index">The index of the object that is about to generate the list change</param>
+            <param name="propertyName">The name of the property that is about to change</param>
+        </member>
+        <member name="P:DlhSoft.DataFramework.ListChangingEventArgs.ListChangingType">
+            <summary>
+            The list changing type
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.ListChangingEventArgs.Index">
+            <summary>
+            The index of the object that is about to generate the list change
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataFramework.ListChangingEventArgs.PropertyName">
+            <summary>
+            The name of the property that is about to change
+            </summary>
+        </member>
+        <member name="T:DlhSoft.DataFramework.ListChangingType">
+            <summary>
+            List changing type enumeration.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.DataFramework.ListChangingType.ItemAdding">
+            <summary>
+            Occurs when an item is about to be added in the list.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.DataFramework.ListChangingType.ItemChanging">
+            <summary>
+            Occurs when an item is about to be changed in the list.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.DataFramework.ListChangingType.ItemRemoving">
+            <summary>
+            Occurs when an item is about to be removed from the list.
+            </summary>
+        </member>
+    </members>
+</doc>

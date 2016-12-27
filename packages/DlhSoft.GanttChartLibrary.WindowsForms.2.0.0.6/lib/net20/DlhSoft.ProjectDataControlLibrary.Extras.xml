@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DlhSoft.ProjectDataControlLibrary.Extras</name>
+    </assembly>
+    <members>
+        <member name="T:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras">
+            <summary>
+            Represents extra services for GanttChartView component.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.GetExtras(DlhSoft.ProjectDataControlLibrary.GanttChartView)">
+            <summary>
+            Returns the extra service object associated to the specified component instance.
+            </summary>
+            <param name="ganttChartView">The component instance to return the extra service object for.</param>
+            <returns>The extra service object associated to the specified component instance.</returns>
+        </member>
+        <member name="M:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.Export">
+            <summary>
+            Exports an image for the grid and Gantt Chart represented by the GanttChartView component instance associated to this service object, allowing the end user to specify the file name and type.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.Export(System.String)">
+            <summary>
+            Exports an image for the grid and Gantt Chart represented by the GanttChartView component instance associated to this service object, to the specified file.
+            </summary>
+            <param name="fileName">Identifies the file and type to export the image to.</param>
+        </member>
+        <member name="M:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.PageSetup">
+            <summary>
+            Displays the Page Setup dialog allowing the end user to set up the document to print.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.PrintPreview">
+            <summary>
+            Displays the Print Preview dialog allowing the end user to view the document as it would print.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.Print">
+            <summary>
+            Prints the grid and Gantt Chart represented by the GanttChartView component instance associated to this service object, allowing the end user to select the printer and configure printed document settings.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.Print(System.Boolean)">
+            <summary>
+            Prints the grid and Gantt Chart represented by the GanttChartView component instance associated to this service object, allowing the end user to select the printer and configure printed document settings before the actual operation starts if the specified parameter is true.
+            </summary>
+            <param name="showDialog">Indicates whether the end user is allowed to select the printer and configure printed document settings before the actual operation starts.</param>
+        </member>
+        <member name="P:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.Columns">
+            <summary>
+            Allows specifying the list of column names to filter when exporting or printing the content of the GanttChartView component associated to this service object.
+            When not set or set to null, no column filter would apply.
+            The default value is null.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.PrintDocument">
+            <summary>
+            Provides a PrintDocument object that you can supplementary configure before actually printing the content of the GanttChartView component associated to this service object.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.GridWidth">
+            <summary>
+            Gets the width of the grid associated to the Gantt Chart of the GanttChartView component.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.GanttWidth">
+            <summary>
+            Gets the width of the Gantt Chart of the GanttChartView component.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.ContentWidth">
+            <summary>
+            Gets the combined width of the content displayed by the grid and Gantt Chart of the GanttChartView component.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.ContentHeight">
+            <summary>
+            Gets the height of the content displayed by the GanttChartView component.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.ProjectDataControlLibrary.GanttChartViewExtras.ProjectStart">
+            <summary>
+            Gets the start date and time of the project displayed by the GanttChartView component.
+            </summary>
+        </member>
+    </members>
+</doc>

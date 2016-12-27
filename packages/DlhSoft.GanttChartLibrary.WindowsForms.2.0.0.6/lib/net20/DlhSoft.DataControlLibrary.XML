@@ -1,0 +1,394 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DlhSoft.DataControlLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:DlhSoft.DataControlLibrary.HierarchicalDataAdapter">
+            <summary>
+            Hierarchical data adapter component. Adapts a data source that defines its hierarchy through key and parent key members so that it will be supported in hierarchical controls that require an index and indent level-based hierarchy.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.#ctor">
+            <summary>
+            Creates a new hierarchical data adapter component instance.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Creates a new hierarchical data adapter component instance.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.InitializeDataBinding(System.Object,System.String,System.String,System.String)">
+            <summary>
+            Initializes data binding from the relational data source to the specified hierarchical data source, setting the indent level values accordingly.
+            </summary>
+            <param name="hierarchicalDataSource">Indicates the source of hierarchical data, defined by key and indent level members, for the hierarchical data adapter component</param>
+            <param name="hierarchicalDataMember">Indicates a sub-list of the hierarchicalDataSource to use; can be null or empty</param>
+            <param name="hierarchicalKeyMember">Specifies the key property name of the hierarchical databound items (the property type should implement IComparable)</param>
+            <param name="hierarchicalIndentLevelMember">Specifies the indent level property name of the hierarchical databound items (the property type should be integer)</param>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.SuspendDataBinding">
+            <summary>
+            Suspends data binding from the relational data source to the hierarchical data source; you need to call InitializeDataBinding again to resume it.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.OnDataBindingComplete">
+            <summary>
+            Raises the DataBindingComplete event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.OnDataSourceChanged">
+            <summary>
+            Raises the DataSourceChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.OnDataMemberChanged">
+            <summary>
+            Raises the DataMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.OnKeyMemberChanged">
+            <summary>
+            Raises the KeyMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.OnParentKeyMemberChanged">
+            <summary>
+            Raises the ParentKeyMemberChanged event.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.DataSource">
+            <summary>
+            Gets or sets the source of relational data, defined by key and parent key members, for the hierarchical data adapter component.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.DataMember">
+            <summary>
+            Gets or sets a sub-list of the DataSource to use in the hierarchical data adapter component.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.KeyMember">
+            <summary>
+            Gets or sets the key property name of the relational databound items (the property type should implement IComparable).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.ParentKeyMember">
+            <summary>
+            Gets or sets the parent key property name of the relational databound items (the property type should implement IComparable).
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.DataBindingComplete">
+            <summary>
+            Occurs when a data bound operation is complete.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.DataSourceChanged">
+            <summary>
+            Occurs when the data source of the component is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.DataMemberChanged">
+            <summary>
+            Occurs when the data member of the component is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.KeyMemberChanged">
+            <summary>
+            Occurs when the key member of the component is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.HierarchicalDataAdapter.ParentKeyMemberChanged">
+            <summary>
+            Occurs when the parent key member of the component is changed.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.DataControlLibrary.DataListView">
+            <summary>
+            Data list view control. List view with complex data-binding support.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.DataControlLibrary.DataListView.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.#ctor">
+            <summary>
+            Creates a new data list view control instance.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.DataBind">
+            <summary>
+            Data binds list view items to the data source items.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnAfterLabelEdit(System.Windows.Forms.LabelEditEventArgs)">
+            <summary>
+            Raises the AfterLabelEdit event.
+            </summary>
+            <param name="e">Arguments</param>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnItemChecked(System.Windows.Forms.ItemCheckedEventArgs)">
+            <summary>
+            Raises the OnItemChecked event.
+            </summary>
+            <param name="e">Arguments</param>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnItemSelectionChanged(System.Windows.Forms.ListViewItemSelectionChangedEventArgs)">
+            <summary>
+            Raises the OnItemSelectionChanged event.
+            </summary>
+            <param name="e">Arguments</param>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnDataBindingComplete">
+            <summary>
+            Raises the DataBindingComplete event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnDataSourceChanged">
+            <summary>
+            Raises the DataSourceChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnDataMemberChanged">
+            <summary>
+            Raises the DataMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnNameMemberChanged">
+            <summary>
+            Raises the NameMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnTextMemberChanged">
+            <summary>
+            Raises the TextMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnCheckedMemberChanged">
+            <summary>
+            Raises the CheckedMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnSelectedMemberChanged">
+            <summary>
+            Raises the SelectedMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnIndentLevelMemberChanged">
+            <summary>
+            Raises the IndentLevelMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnToolTipTextMemberChanged">
+            <summary>
+            Raises the ToolTipTextMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnImageIndexMemberChanged">
+            <summary>
+            Raises the ImageIndexMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnStateImageIndexMemberChanged">
+            <summary>
+            Raises the StateImageIndexMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnForeColorMemberChanged">
+            <summary>
+            Raises the ForeColorMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnBackColorMemberChanged">
+            <summary>
+            Raises the BackColorMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnFontMemberChanged">
+            <summary>
+            Raises the FontMemberChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.DataControlLibrary.DataListView.OnSubItemsMemberChanged">
+            <summary>
+            Raises the SubItemsMemberChanged event.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.DataSource">
+            <summary>
+            Gets or sets the source of data.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.DataMember">
+            <summary>
+            Gets or sets a sub-list of the DataSource to use.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.NameMember">
+            <summary>
+            Gets or sets the name property name of the databound items (the property type should be string).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.TextMember">
+            <summary>
+            Gets or sets the text property name of the databound items (the property type should be string).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.CheckedMember">
+            <summary>
+            Gets or sets the checked property name of the databound items (the property type should be bool).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.SelectedMember">
+            <summary>
+            Gets or sets the selected property name of the databound items (the property type should be bool).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.IndentLevelMember">
+            <summary>
+            Gets or sets the indent level property name of the databound items (the property type should be int).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.ToolTipTextMember">
+            <summary>
+            Gets or sets the tooltip text property name of the databound items (the property type should be string).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.StateImageIndexMember">
+            <summary>
+            Gets or sets the state image index property name of the databound items (the property type should be int).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.ImageIndexMember">
+            <summary>
+            Gets or sets the image index property name of the databound items (the property type should be int).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.ForeColorMember">
+            <summary>
+            Gets or sets the fore color property name of the databound items (the property type should be Color).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.BackColorMember">
+            <summary>
+            Gets or sets the back color property name of the databound items (the property type should be Color).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.FontMember">
+            <summary>
+            Gets or sets the font property name of the databound items (the property type should be Font).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.DataControlLibrary.DataListView.SubItemsMember">
+            <summary>
+            Gets or sets the sub-items property name of the databound items (the property type should be a string collection or named dictionary).
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.DataBindingComplete">
+            <summary>
+            Occurs when a data bound operation is complete.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.DataSourceChanged">
+            <summary>
+            Occurs when the data source of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.DataMemberChanged">
+            <summary>
+            Occurs when the data member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.NameMemberChanged">
+            <summary>
+            Occurs when the name member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.TextMemberChanged">
+            <summary>
+            Occurs when the text member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.CheckedMemberChanged">
+            <summary>
+            Occurs when the checked member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.SelectedMemberChanged">
+            <summary>
+            Occurs when the selected member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.IndentLevelMemberChanged">
+            <summary>
+            Occurs when the indent level member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.ToolTipTextMemberChanged">
+            <summary>
+            Occurs when the tooltip text member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.ImageIndexMemberChanged">
+            <summary>
+            Occurs when the image index member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.StateImageIndexMemberChanged">
+            <summary>
+            Occurs when the state image index member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.ForeColorMemberChanged">
+            <summary>
+            Occurs when the fore color member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.BackColorMemberChanged">
+            <summary>
+            Occurs when the back color member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.FontMemberChanged">
+            <summary>
+            Occurs when the font member of the control is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.DataControlLibrary.DataListView.SubItemsMemberChanged">
+            <summary>
+            Occurs when the sub-items member of the control is changed.
+            </summary>
+        </member>
+    </members>
+</doc>

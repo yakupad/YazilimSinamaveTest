@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1ab8521ca8d64e128f74475814538f1c" Name="Diagram1">
+        <EntityTypeShape EntityType="yazilimsinamaModel.tblProcess" Width="1.5" PointX="5.25" PointY="16.875" />
+        <EntityTypeShape EntityType="yazilimsinamaModel.tblProjects" Width="1.5" PointX="3" PointY="21.625" />
+        <EntityTypeShape EntityType="yazilimsinamaModel.tblRoleNames" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="yazilimsinamaModel.tblUserLogDetails" Width="1.5" PointX="5.25" PointY="13.25" />
+        <EntityTypeShape EntityType="yazilimsinamaModel.tblUserLogs" Width="1.5" PointX="3" PointY="13.25" />
+        <EntityTypeShape EntityType="yazilimsinamaModel.tblUserProcess" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="yazilimsinamaModel.tblUserRoles" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="yazilimsinamaModel.tblUsers" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="yazilimsinamaModel.tblWorkFollow" Width="1.5" PointX="7.5" PointY="13.875" />
+        <AssociationConnector Association="yazilimsinamaModel.fk_b" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblProcess_tblUsers" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblProcessProcessID_tblProcessParentID" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblProcessProcessID_WorkFollowProcessID" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblProjectsProjectID_tblProcessProjectID" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblProjects_tblUsers" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblProjects_tblUsers1" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblUserRoles_tblRoleNames" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblUserLogsUserLogsID_tblUserLogDetailsUserLogsID" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblUsersUsersID_tblUserLogsUserID" />
+        <AssociationConnector Association="yazilimsinamaModel.fk" />
+        <AssociationConnector Association="yazilimsinamaModel.fkss" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblUserRoles_tblUsers" />
+        <AssociationConnector Association="yazilimsinamaModel.FK_tblUsersUserID_WorkFollowUserID" />
+        <AssociationConnector Association="yazilimsinamaModel.up_p" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
