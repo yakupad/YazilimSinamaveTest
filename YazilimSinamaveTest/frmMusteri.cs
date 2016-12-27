@@ -152,6 +152,8 @@ namespace YazilimSinamaveTest
 
                 }
                 progressBarTamamlanmaOrani.Value = yuzde;
+                lblOran.Text = Convert.ToString(yuzde) +"%";
+
             }
             catch (Exception ex)
             {
@@ -163,28 +165,35 @@ namespace YazilimSinamaveTest
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            if (txtButce2.Value == 0 || txtProjeAdi.Text == "" || txtProjeAciklamasi.Text == "")
+            if (projeID!=0)
             {
-                MessageBox.Show("Lütfen Boş Bırakılan Alanları Doldurunuz!");
+                if (txtButce2.Value == 0 || txtProjeAdi.Text == "" || txtProjeAciklamasi.Text == "")
+                {
+                    MessageBox.Show("Lütfen Boş Bırakılan Alanları Doldurunuz!");
+                }
+                else
+                {
+                    var guncellenicekproje = db.tblProjects.Where(x => x.ProjectID == projeID).FirstOrDefault();
+                    guncellenicekproje.Budget = Convert.ToInt32(txtButce2.Text);
+                    guncellenicekproje.Description = txtProjeAciklamasi.Text;
+                    guncellenicekproje.FinishDate = dtpBitisTarihi.Value;
+                    if (chbAktif.Checked == true)
+                        guncellenicekproje.isActive = true;
+                    else
+                        guncellenicekproje.isActive = false;
+                    guncellenicekproje.ProjectName = txtProjeAdi.Text;
+                    guncellenicekproje.ProjectUserName = cmbProjeYöneticisi.SelectedItem.ToString();
+                    guncellenicekproje.StartDate = dtpBitisTarihi.Value;
+
+                    db.SaveChanges();
+                    DataGridDoldur();
+
+                    MessageBox.Show("Projeniz Güncellendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                var guncellenicekproje = db.tblProjects.Where(x => x.ProjectID == projeID).FirstOrDefault();
-                guncellenicekproje.Budget = Convert.ToInt32(txtButce2.Text);
-                guncellenicekproje.Description = txtProjeAciklamasi.Text;
-                guncellenicekproje.FinishDate = dtpBitisTarihi.Value;
-                if (chbAktif.Checked == true)
-                    guncellenicekproje.isActive = true;
-                else
-                    guncellenicekproje.isActive = false;
-                guncellenicekproje.ProjectName = txtProjeAdi.Text;
-                guncellenicekproje.ProjectUserName = cmbProjeYöneticisi.SelectedItem.ToString();
-                guncellenicekproje.StartDate = dtpBitisTarihi.Value;
-
-                db.SaveChanges();
-                DataGridDoldur();
-
-                MessageBox.Show("Projeniz Güncellendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Lütfen Bir Proje Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -209,14 +218,21 @@ namespace YazilimSinamaveTest
 
         private void btnProjeSil_Click(object sender, EventArgs e)
         {
-            
+            if (projeID!=0)
+            {
                 tblProjects silinecekproje = db.tblProjects.Where(x => x.ProjectID == projeID).FirstOrDefault();
                 db.tblProjects.Remove(silinecekproje);
                 db.SaveChanges();
                 DataGridDoldur();
 
                 MessageBox.Show("Projeniz Silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            AlanlariSifirla();
+                AlanlariSifirla();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Bir Proje Seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+              
          }
         private void AlanlariSifirla()
         {
@@ -226,6 +242,13 @@ namespace YazilimSinamaveTest
             chbAktif.Checked = false;
             
 
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmRolSecimi _temp = new frmRolSecimi();
+            _temp.Show();
         }
     }
 }

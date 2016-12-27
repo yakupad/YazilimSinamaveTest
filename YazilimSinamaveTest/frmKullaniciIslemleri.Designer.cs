@@ -57,34 +57,37 @@
             // checkBoxMusteri
             // 
             this.checkBoxMusteri.AutoSize = true;
+            this.checkBoxMusteri.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxMusteri.Location = new System.Drawing.Point(12, 58);
             this.checkBoxMusteri.Name = "checkBoxMusteri";
             this.checkBoxMusteri.Size = new System.Drawing.Size(60, 17);
             this.checkBoxMusteri.TabIndex = 1;
             this.checkBoxMusteri.Text = "Müşteri";
-            this.checkBoxMusteri.UseVisualStyleBackColor = true;
+            this.checkBoxMusteri.UseVisualStyleBackColor = false;
             this.checkBoxMusteri.CheckedChanged += new System.EventHandler(this.checkBoxMusteri_CheckedChanged);
             // 
             // checkBoxYonetici
             // 
             this.checkBoxYonetici.AutoSize = true;
+            this.checkBoxYonetici.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxYonetici.Location = new System.Drawing.Point(150, 58);
             this.checkBoxYonetici.Name = "checkBoxYonetici";
             this.checkBoxYonetici.Size = new System.Drawing.Size(64, 17);
             this.checkBoxYonetici.TabIndex = 2;
             this.checkBoxYonetici.Text = "Yönetici";
-            this.checkBoxYonetici.UseVisualStyleBackColor = true;
+            this.checkBoxYonetici.UseVisualStyleBackColor = false;
             this.checkBoxYonetici.CheckedChanged += new System.EventHandler(this.checkBoxYonetici_CheckedChanged);
             // 
             // checkBoxYazilimci
             // 
             this.checkBoxYazilimci.AutoSize = true;
+            this.checkBoxYazilimci.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxYazilimci.Location = new System.Drawing.Point(78, 58);
             this.checkBoxYazilimci.Name = "checkBoxYazilimci";
             this.checkBoxYazilimci.Size = new System.Drawing.Size(66, 17);
             this.checkBoxYazilimci.TabIndex = 3;
             this.checkBoxYazilimci.Text = "Yazılımcı";
-            this.checkBoxYazilimci.UseVisualStyleBackColor = true;
+            this.checkBoxYazilimci.UseVisualStyleBackColor = false;
             this.checkBoxYazilimci.CheckedChanged += new System.EventHandler(this.checkBoxYazilimci_CheckedChanged);
             // 
             // textBoxAd
@@ -118,6 +121,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 13);
@@ -127,6 +131,7 @@
             // lblKulAdi
             // 
             this.lblKulAdi.AutoSize = true;
+            this.lblKulAdi.BackColor = System.Drawing.Color.Transparent;
             this.lblKulAdi.Location = new System.Drawing.Point(12, 86);
             this.lblKulAdi.Name = "lblKulAdi";
             this.lblKulAdi.Size = new System.Drawing.Size(22, 13);
@@ -136,6 +141,7 @@
             // lblKulSoyadi
             // 
             this.lblKulSoyadi.AutoSize = true;
+            this.lblKulSoyadi.BackColor = System.Drawing.Color.Transparent;
             this.lblKulSoyadi.Location = new System.Drawing.Point(12, 112);
             this.lblKulSoyadi.Name = "lblKulSoyadi";
             this.lblKulSoyadi.Size = new System.Drawing.Size(39, 13);
@@ -145,6 +151,7 @@
             // lblKulNickName
             // 
             this.lblKulNickName.AutoSize = true;
+            this.lblKulNickName.BackColor = System.Drawing.Color.Transparent;
             this.lblKulNickName.Location = new System.Drawing.Point(12, 138);
             this.lblKulNickName.Name = "lblKulNickName";
             this.lblKulNickName.Size = new System.Drawing.Size(64, 13);
@@ -154,6 +161,7 @@
             // lblParola
             // 
             this.lblParola.AutoSize = true;
+            this.lblParola.BackColor = System.Drawing.Color.Transparent;
             this.lblParola.Location = new System.Drawing.Point(12, 164);
             this.lblParola.Name = "lblParola";
             this.lblParola.Size = new System.Drawing.Size(37, 13);
@@ -163,6 +171,7 @@
             // lblKayıtTarihi
             // 
             this.lblKayıtTarihi.AutoSize = true;
+            this.lblKayıtTarihi.BackColor = System.Drawing.Color.Transparent;
             this.lblKayıtTarihi.Location = new System.Drawing.Point(12, 190);
             this.lblKayıtTarihi.Name = "lblKayıtTarihi";
             this.lblKayıtTarihi.Size = new System.Drawing.Size(59, 13);
@@ -182,6 +191,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::YazilimSinamaveTest.Properties.Resources.bck;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(232, 226);
             this.Controls.Add(this.dateTimePickerKayitTarihi);
             this.Controls.Add(this.lblKayıtTarihi);
@@ -198,8 +209,11 @@
             this.Controls.Add(this.checkBoxYonetici);
             this.Controls.Add(this.checkBoxMusteri);
             this.Controls.Add(this.comboBoxUyeler);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "frmKullaniciIslemleri";
-            this.Text = "frmKullaniciIslemleri";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Kullanıcı İşlemleri";
             this.Load += new System.EventHandler(this.frmKullaniciIslemleri_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

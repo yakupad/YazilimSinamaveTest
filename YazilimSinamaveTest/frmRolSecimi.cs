@@ -59,5 +59,12 @@ namespace YazilimSinamaveTest
             }
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmUyeGiris _temp = new frmUyeGiris();
+            _temp.Show();
+        }
     }
 }

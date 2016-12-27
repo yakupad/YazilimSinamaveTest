@@ -33,6 +33,7 @@
             this.btnRolGiris = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             // 
             this.lblRolSecimi.AutoSize = true;
             this.lblRolSecimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRolSecimi.Location = new System.Drawing.Point(91, 122);
+            this.lblRolSecimi.Location = new System.Drawing.Point(99, 122);
             this.lblRolSecimi.Name = "lblRolSecimi";
             this.lblRolSecimi.Size = new System.Drawing.Size(132, 20);
             this.lblRolSecimi.TabIndex = 1;
@@ -60,12 +61,13 @@
             // 
             // btnRolGiris
             // 
-            this.btnRolGiris.BackgroundImage = global::YazilimSinamaveTest.Properties.Resources.enter;
             this.btnRolGiris.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRolGiris.Location = new System.Drawing.Point(125, 287);
+            this.btnRolGiris.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRolGiris.Location = new System.Drawing.Point(116, 215);
             this.btnRolGiris.Name = "btnRolGiris";
-            this.btnRolGiris.Size = new System.Drawing.Size(83, 56);
+            this.btnRolGiris.Size = new System.Drawing.Size(95, 30);
             this.btnRolGiris.TabIndex = 2;
+            this.btnRolGiris.Text = "Giriş Yap";
             this.btnRolGiris.UseVisualStyleBackColor = true;
             this.btnRolGiris.Click += new System.EventHandler(this.btnRolGiris_Click);
             // 
@@ -83,6 +85,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.btnBack);
             this.groupBox1.Controls.Add(this.btnRolGiris);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbRol);
@@ -94,6 +97,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rol Seçimi";
             // 
+            // btnBack
+            // 
+            this.btnBack.BackgroundImage = global::YazilimSinamaveTest.Properties.Resources.backrec;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Location = new System.Drawing.Point(4, 316);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(52, 44);
+            this.btnBack.TabIndex = 14;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // frmRolSecimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +118,7 @@
             this.ClientSize = new System.Drawing.Size(362, 394);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "frmRolSecimi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rol Seçimi";
@@ -120,5 +135,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbRol;
+        private System.Windows.Forms.Button btnBack;
     }
 }

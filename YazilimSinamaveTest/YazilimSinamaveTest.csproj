@@ -274,8 +274,11 @@
       <LastGenOutput>EntityModel.cs</LastGenOutput>
     </Content>
     <None Include="Resources\bck.jpg" />
+    <None Include="Resources\Back-icon.png" />
+    <None Include="Resources\backrec.png" />
     <Content Include="Resources\cancel.png" />
     <Content Include="Resources\enter.png" />
+    <None Include="Resources\leftbackk.png" />
     <Content Include="Resources\lock.png" />
     <Content Include="Resources\no.jpg" />
     <Content Include="Resources\register.png" />

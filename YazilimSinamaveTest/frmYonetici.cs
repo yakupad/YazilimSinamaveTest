@@ -386,5 +386,12 @@ namespace YazilimSinamaveTest
             frmKullaniciIslemleri kulislem = new frmKullaniciIslemleri();
             kulislem.Show();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmRolSecimi _temp = new frmRolSecimi();
+            _temp.Show();
+        }
     }
 }

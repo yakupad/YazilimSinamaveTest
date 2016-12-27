@@ -73,6 +73,26 @@ namespace YazilimSinamaveTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Back_icon {
+            get {
+                object obj = ResourceManager.GetObject("Back-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap backrec {
+            get {
+                object obj = ResourceManager.GetObject("backrec", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bck {
             get {
                 object obj = ResourceManager.GetObject("bck", resourceCulture);
@@ -96,6 +116,16 @@ namespace YazilimSinamaveTest.Properties {
         internal static System.Drawing.Bitmap enter {
             get {
                 object obj = ResourceManager.GetObject("enter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap leftbackk {
+            get {
+                object obj = ResourceManager.GetObject("leftbackk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
