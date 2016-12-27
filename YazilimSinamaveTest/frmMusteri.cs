@@ -23,28 +23,36 @@ namespace YazilimSinamaveTest
 
         private void DataGridDoldur()
         {
-            dataGridView1.Rows.Clear();
-            dataGridView1.Refresh();
-            foreach (var item in db.tblProjects.Where(x => x.CreateUserID == frmUyeGiris.uyeID))
+            try
             {
+                dataGridView1.Rows.Clear();
+                dataGridView1.Refresh();
+                foreach (var item in db.tblProjects.Where(x => x.CreateUserID == frmUyeGiris.uyeID))
+                {
 
-                int rowIndex = this.dataGridView1.Rows.Add();
-                var row = this.dataGridView1.Rows[rowIndex];
-
-
-                row.Cells[0].Value = item.ProjectID;
-                row.Cells[1].Value = item.ProjectName;
-                row.Cells[2].Value = item.StartDate;
-                row.Cells[3].Value = item.FinishDate;
-                row.Cells[4].Value = item.isActive;
-                row.Cells[5].Value = item.Budget;
-                row.Cells[6].Value = item.CreateDate;
-                row.Cells[7].Value = item.Description;
-                row.Cells[8].Value = item.CreateUserName;
-                row.Cells[9].Value = item.ProjectUserName;
+                    int rowIndex = this.dataGridView1.Rows.Add();
+                    var row = this.dataGridView1.Rows[rowIndex];
 
 
+                    row.Cells[0].Value = item.ProjectID;
+                    row.Cells[1].Value = item.ProjectName;
+                    row.Cells[2].Value = item.StartDate;
+                    row.Cells[3].Value = item.FinishDate;
+                    row.Cells[4].Value = item.isActive;
+                    row.Cells[5].Value = item.Budget;
+                    row.Cells[6].Value = item.CreateDate;
+                    row.Cells[7].Value = item.Description;
+                    row.Cells[8].Value = item.CreateUserName;
+                    row.Cells[9].Value = item.ProjectUserName;
+
+
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void frmMusteri_Load(object sender, EventArgs e)
@@ -53,57 +61,74 @@ namespace YazilimSinamaveTest
             // TODO: This line of code loads data into the 'yazilimsinamaDataSet2.tblProjects' table. You can move, or remove it, as needed.
 
 
-
-
-
-            DataGridDoldur();
-
-
-            foreach (var item in db.tblUserRoles.Where(x => x.tblRoleNames.RoleName.ToString() == "Yönetici"))
+            try
             {
-                cmbProjeYöneticisi.Items.Add(item.tblUsers.UserNickname);
+                DataGridDoldur();
+
+
+                foreach (var item in db.tblUserRoles.Where(x => x.tblRoleNames.RoleName.ToString() == "Yönetici"))
+                {
+                    cmbProjeYöneticisi.Items.Add(item.tblUsers.UserNickname);
+                }
+                dataGridView1.AllowUserToAddRows = false;
+                cmbProjeYöneticisi.SelectedIndex = 0;
             }
-            dataGridView1.AllowUserToAddRows = false;
-            cmbProjeYöneticisi.SelectedIndex = 0;
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            
         }
 
         private void btnProjeEkle_Click(object sender, EventArgs e)
         {
-            if (txtButce2.Value == 0 || txtProjeAdi.Text == "" || txtProjeAciklamasi.Text == "")
+            try
             {
-                MessageBox.Show("Lütfen Boş Bırakılan Alanları Doldurunuz!");
-            }
-            else
-            {
-                tblProjects proje = new YazilimSinamaveTest.tblProjects();
-                proje.Budget = Convert.ToDecimal(txtButce2.Text);
-                proje.CreateDate = DateTime.Now;
-                proje.CreateUserID = frmUyeGiris.uyeID;
-                proje.CreateUserName = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
-                proje.Description = txtProjeAciklamasi.Text;
-                proje.FinishDate = dtpBitisTarihi.Value;
-                if (chbAktif.Checked == true)
-                    proje.isActive = true;
+                if (txtButce2.Value == 0 || txtProjeAdi.Text == "" || txtProjeAciklamasi.Text == "")
+                {
+                    MessageBox.Show("Lütfen Boş Bırakılan Alanları Doldurunuz!");
+                }
                 else
-                    proje.isActive = false;
-                proje.ProjectName = txtProjeAdi.Text;
-                proje.StartDate = dtpBaslangicTarihi.Value;
-                proje.ProjectUserID = db.tblUsers.FirstOrDefault(x => x.UserNickname == cmbProjeYöneticisi.SelectedItem.ToString()).UsersID;
-                proje.ProjectUserName = db.tblUsers.FirstOrDefault(x => x.UserNickname == cmbProjeYöneticisi.SelectedItem.ToString()).UserNickname;
-                db.tblProjects.Add(proje);
-                db.SaveChanges();
-                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
-                log.LogDate = DateTime.Now;
-                log.UserLogDescription = "Proje Ekledi.";
-                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
-                db.tblUserLogDetails.Add(log);
-                db.SaveChanges();
+                {
+                    tblProjects proje = new YazilimSinamaveTest.tblProjects();
+                    proje.Budget = Convert.ToDecimal(txtButce2.Text);
+                    proje.CreateDate = DateTime.Now;
+                    proje.CreateUserID = frmUyeGiris.uyeID;
+                    proje.CreateUserName = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                    proje.Description = txtProjeAciklamasi.Text;
+                    proje.FinishDate = dtpBitisTarihi.Value;
+                    if (chbAktif.Checked == true)
+                        proje.isActive = true;
+                    else
+                        proje.isActive = false;
+                    proje.ProjectName = txtProjeAdi.Text;
+                    proje.StartDate = dtpBaslangicTarihi.Value;
+                    proje.ProjectUserID = db.tblUsers.FirstOrDefault(x => x.UserNickname == cmbProjeYöneticisi.SelectedItem.ToString()).UsersID;
+                    proje.ProjectUserName = db.tblUsers.FirstOrDefault(x => x.UserNickname == cmbProjeYöneticisi.SelectedItem.ToString()).UserNickname;
+                    db.tblProjects.Add(proje);
+                    db.SaveChanges();
+                    tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                    log.LogDate = DateTime.Now;
+                    log.UserLogDescription = "Proje Ekledi.";
+                    log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                    db.tblUserLogDetails.Add(log);
+                    db.SaveChanges();
 
 
 
-                DataGridDoldur();
-                MessageBox.Show("Proje Başarıyla Eklendi");
+                    DataGridDoldur();
+                    MessageBox.Show("Proje Başarıyla Eklendi");
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
 
         }
@@ -165,117 +190,168 @@ namespace YazilimSinamaveTest
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            if (projeID!=0)
+            try
             {
-                if (txtButce2.Value == 0 || txtProjeAdi.Text == "" || txtProjeAciklamasi.Text == "")
+                if (projeID != 0)
                 {
-                    MessageBox.Show("Lütfen Boş Bırakılan Alanları Doldurunuz!");
+                    if (txtButce2.Value == 0 || txtProjeAdi.Text == "" || txtProjeAciklamasi.Text == "")
+                    {
+                        MessageBox.Show("Lütfen Boş Bırakılan Alanları Doldurunuz!");
+                    }
+                    else
+                    {
+                        var guncellenicekproje = db.tblProjects.Where(x => x.ProjectID == projeID).FirstOrDefault();
+                        guncellenicekproje.Budget = Convert.ToInt32(txtButce2.Text);
+                        guncellenicekproje.Description = txtProjeAciklamasi.Text;
+                        guncellenicekproje.FinishDate = dtpBitisTarihi.Value;
+                        if (chbAktif.Checked == true)
+                            guncellenicekproje.isActive = true;
+                        else
+                            guncellenicekproje.isActive = false;
+                        guncellenicekproje.ProjectName = txtProjeAdi.Text;
+                        guncellenicekproje.ProjectUserName = cmbProjeYöneticisi.SelectedItem.ToString();
+                        guncellenicekproje.StartDate = dtpBitisTarihi.Value;
+
+                        db.SaveChanges();
+                        tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                        log.LogDate = DateTime.Now;
+                        log.UserLogDescription = "Projeyi güncelledi.";
+                        log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                        db.tblUserLogDetails.Add(log);
+                        db.SaveChanges();
+                        DataGridDoldur();
+
+                        MessageBox.Show("Projeniz Güncellendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    var guncellenicekproje = db.tblProjects.Where(x => x.ProjectID == projeID).FirstOrDefault();
-                    guncellenicekproje.Budget = Convert.ToInt32(txtButce2.Text);
-                    guncellenicekproje.Description = txtProjeAciklamasi.Text;
-                    guncellenicekproje.FinishDate = dtpBitisTarihi.Value;
-                    if (chbAktif.Checked == true)
-                        guncellenicekproje.isActive = true;
-                    else
-                        guncellenicekproje.isActive = false;
-                    guncellenicekproje.ProjectName = txtProjeAdi.Text;
-                    guncellenicekproje.ProjectUserName = cmbProjeYöneticisi.SelectedItem.ToString();
-                    guncellenicekproje.StartDate = dtpBitisTarihi.Value;
-
-                db.SaveChanges();
-                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
-                log.LogDate = DateTime.Now;
-                log.UserLogDescription = "Projeyi güncelledi.";
-                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
-                db.tblUserLogDetails.Add(log);
-                db.SaveChanges();
-                DataGridDoldur();
-
-                    MessageBox.Show("Projeniz Güncellendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Lütfen Bir Proje Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Lütfen Bir Proje Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void dtpBaslangicTarihi_ValueChanged(object sender, EventArgs e)
         {
-            DateTime bTarih = Convert.ToDateTime(dtpBaslangicTarihi.Text);
-            DateTime eTarih = Convert.ToDateTime(dtpBitisTarihi.Text);
-            TimeSpan Sonuc = eTarih - bTarih;
-            dtpBitisTarihi.MinDate = bTarih;
+            try
+            {
+                DateTime bTarih = Convert.ToDateTime(dtpBaslangicTarihi.Text);
+                DateTime eTarih = Convert.ToDateTime(dtpBitisTarihi.Text);
+                TimeSpan Sonuc = eTarih - bTarih;
+                dtpBitisTarihi.MinDate = bTarih;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
         }
 
         private void dtpBitisTarihi_ValueChanged(object sender, EventArgs e)
         {
-            DateTime bTarih = Convert.ToDateTime(dtpBaslangicTarihi.Text);
-            DateTime eTarih = Convert.ToDateTime(dtpBitisTarihi.Text);
-            TimeSpan Sonuc = eTarih - bTarih;
-            dtpBitisTarihi.MinDate = bTarih;
-            txtSure.Text = Sonuc.TotalDays.ToString();
+            try
+            {
+                DateTime bTarih = Convert.ToDateTime(dtpBaslangicTarihi.Text);
+                DateTime eTarih = Convert.ToDateTime(dtpBitisTarihi.Text);
+                TimeSpan Sonuc = eTarih - bTarih;
+                dtpBitisTarihi.MinDate = bTarih;
+                txtSure.Text = Sonuc.TotalDays.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnProjeSil_Click(object sender, EventArgs e)
         {
-            if (projeID!=0)
+            try
             {
-                tblProjects silinecekproje = db.tblProjects.Where(x => x.ProjectID == projeID).FirstOrDefault();
-                if (silinecekproje!=null)
+                if (projeID != 0)
                 {
-                    db.tblProjects.Remove(silinecekproje);
-                    db.SaveChanges();
-                    tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
-                    log.LogDate = DateTime.Now;
-                    log.UserLogDescription = "Projeyi sildi.";
-                    log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
-                    db.tblUserLogDetails.Add(log);
-                    db.SaveChanges();
-                    DataGridDoldur();
+                    tblProjects silinecekproje = db.tblProjects.Where(x => x.ProjectID == projeID).FirstOrDefault();
+                    if (silinecekproje != null)
+                    {
+                        db.tblProjects.Remove(silinecekproje);
+                        db.SaveChanges();
+                        tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                        log.LogDate = DateTime.Now;
+                        log.UserLogDescription = "Projeyi sildi.";
+                        log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                        db.tblUserLogDetails.Add(log);
+                        db.SaveChanges();
+                        DataGridDoldur();
 
-                    MessageBox.Show("Projeniz Silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AlanlariSifirla();
+                        MessageBox.Show("Projeniz Silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AlanlariSifirla();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lütfen Proje Seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show("Lütfen Proje Seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Lütfen Bir Proje Seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-           
+
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Lütfen Bir Proje Seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-              
+           
          }
         private void AlanlariSifirla()
         {
-            txtProjeAdi.Text = txtButce2.Text = txtProjeAciklamasi.Text = txtSure.Text = "";
-            progressBarTamamlanmaOrani.Value = 0;
-            cmbProjeYöneticisi.Text = "";
-            chbAktif.Checked = false;
+            try
+            {
+                txtProjeAdi.Text = txtButce2.Text = txtProjeAciklamasi.Text = txtSure.Text = "";
+                progressBarTamamlanmaOrani.Value = 0;
+                cmbProjeYöneticisi.Text = "";
+                chbAktif.Checked = false;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             
 
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmRolSecimi _temp = new frmRolSecimi();
-            _temp.Show();
+            try
+            {
+                this.Close();
+                frmRolSecimi _temp = new frmRolSecimi();
+                _temp.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
