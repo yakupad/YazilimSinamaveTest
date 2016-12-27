@@ -117,12 +117,6 @@
     <Compile Include="frmMusteri.Designer.cs">
       <DependentUpon>frmMusteri.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProjeEkrani.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmProjeEkrani.Designer.cs">
-      <DependentUpon>frmProjeEkrani.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmRolSecimi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,9 +197,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMusteri.resx">
       <DependentUpon>frmMusteri.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmProjeEkrani.resx">
-      <DependentUpon>frmProjeEkrani.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRolSecimi.resx">
       <DependentUpon>frmRolSecimi.cs</DependentUpon>
