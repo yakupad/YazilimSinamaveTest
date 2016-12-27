@@ -51,3 +51,4 @@ C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\bin\Debug
 C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinamaveTest\bin\Debug\itextsharp.dll
 C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinamaveTest\bin\Debug\itextsharp.xml
 C:\Users\yakup\Source\Workspaces\YazilimSinama\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmLog.resources
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest\obj\Debug\YazilimSinamaveTest.frmLog.resources
