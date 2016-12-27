@@ -30,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Tüm Görevler");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Tüm Görevler");
             this.treeViewGorevler = new System.Windows.Forms.TreeView();
             this.btnGorevEkle = new System.Windows.Forms.Button();
             this.groupBoxIslemler = new System.Windows.Forms.GroupBox();
@@ -70,6 +70,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnKulIslemleri = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxIslemler.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,10 +78,10 @@
             // 
             this.treeViewGorevler.Location = new System.Drawing.Point(12, 53);
             this.treeViewGorevler.Name = "treeViewGorevler";
-            treeNode1.Name = "0";
-            treeNode1.Text = "Tüm Görevler";
+            treeNode3.Name = "0";
+            treeNode3.Text = "Tüm Görevler";
             this.treeViewGorevler.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode3});
             this.treeViewGorevler.Size = new System.Drawing.Size(259, 375);
             this.treeViewGorevler.TabIndex = 0;
             this.treeViewGorevler.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewGorevler_NodeMouseClick);
@@ -445,7 +446,7 @@
             // 
             // btnKulIslemleri
             // 
-            this.btnKulIslemleri.Location = new System.Drawing.Point(814, 12);
+            this.btnKulIslemleri.Location = new System.Drawing.Point(814, 11);
             this.btnKulIslemleri.Name = "btnKulIslemleri";
             this.btnKulIslemleri.Size = new System.Drawing.Size(27, 319);
             this.btnKulIslemleri.TabIndex = 6;
@@ -467,6 +468,16 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(814, 343);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(27, 97);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "L\r\nO\r\nG\r\nL\r\nA\r\nR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // frmYonetici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -474,6 +485,7 @@
             this.BackgroundImage = global::YazilimSinamaveTest.Properties.Resources.bck;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(850, 453);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnKulIslemleri);
             this.Controls.Add(this.label2);
@@ -532,5 +544,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnKulIslemleri;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button button1;
     }
 }

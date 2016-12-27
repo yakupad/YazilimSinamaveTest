@@ -393,5 +393,11 @@ namespace YazilimSinamaveTest
             frmRolSecimi _temp = new frmRolSecimi();
             _temp.Show();
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            frmLog logs = new YazilimSinamaveTest.frmLog();
+            logs.Show();
+        }
     }
 }
