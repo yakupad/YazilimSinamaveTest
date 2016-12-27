@@ -30,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Tüm Görevler");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Tüm Görevler");
             this.treeViewGorevler = new System.Windows.Forms.TreeView();
             this.btnGorevEkle = new System.Windows.Forms.Button();
             this.groupBoxIslemler = new System.Windows.Forms.GroupBox();
@@ -78,10 +78,10 @@
             // 
             this.treeViewGorevler.Location = new System.Drawing.Point(12, 53);
             this.treeViewGorevler.Name = "treeViewGorevler";
-            treeNode1.Name = "0";
-            treeNode1.Text = "Tüm Görevler";
+            treeNode2.Name = "0";
+            treeNode2.Text = "Tüm Görevler";
             this.treeViewGorevler.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeViewGorevler.Size = new System.Drawing.Size(259, 375);
             this.treeViewGorevler.TabIndex = 0;
             this.treeViewGorevler.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewGorevler_NodeMouseClick);
@@ -149,9 +149,9 @@
             this.lblTOrani.AutoSize = true;
             this.lblTOrani.Location = new System.Drawing.Point(47, 130);
             this.lblTOrani.Name = "lblTOrani";
-            this.lblTOrani.Size = new System.Drawing.Size(98, 13);
+            this.lblTOrani.Size = new System.Drawing.Size(15, 13);
             this.lblTOrani.TabIndex = 35;
-            this.lblTOrani.Text = "Tamamlanma Oranı";
+            this.lblTOrani.Text = "%";
             // 
             // btnSurecAkisiGoruntule
             // 
@@ -386,6 +386,7 @@
             // 
             // txtGorevSuresi
             // 
+            this.txtGorevSuresi.Enabled = false;
             this.txtGorevSuresi.Location = new System.Drawing.Point(259, 85);
             this.txtGorevSuresi.Name = "txtGorevSuresi";
             this.txtGorevSuresi.Size = new System.Drawing.Size(65, 20);
@@ -493,7 +494,7 @@
             this.Controls.Add(this.groupBoxIslemler);
             this.Controls.Add(this.treeViewGorevler);
             this.Name = "frmYonetici";
-            this.Text = "Yönetici";
+            this.Text = "frmYonetici";
             this.Load += new System.EventHandler(this.frmYonetici_Load);
             this.groupBoxIslemler.ResumeLayout(false);
             this.groupBoxIslemler.PerformLayout();

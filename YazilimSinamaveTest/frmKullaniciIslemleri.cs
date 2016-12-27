@@ -38,7 +38,13 @@ namespace YazilimSinamaveTest
             textBoxSoyad.Text = user.UserSurname;
             dateTimePickerKayitTarihi.Value = user.UserCreatedDate.Value;
             userID = user.UsersID;
-            if(db.tblUserRoles.Any(x=>x.UserID==userID&&x.RoleNameID==1))
+            tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+            log.LogDate = DateTime.Now;
+            log.UserLogDescription = userID + "Üye ID'li Üyenin bilgileri görüntülendi.";
+            log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+            db.tblUserLogDetails.Add(log);
+            db.SaveChanges();
+            if (db.tblUserRoles.Any(x=>x.UserID==userID&&x.RoleNameID==1))
             {
                 checkBoxYazilimci.Checked = true;
             }
@@ -75,6 +81,12 @@ namespace YazilimSinamaveTest
             userguncelle.UserPassword = textBoxParola.Text;
             userguncelle.UserSurname = textBoxSoyad.Text;
             db.SaveChanges();
+            tblUserLogDetails logG = new YazilimSinamaveTest.tblUserLogDetails();
+            logG.LogDate = DateTime.Now;
+            logG.UserLogDescription = userID + "Üye ID'li Üyenin profili güncellendi.";
+            logG.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+            db.tblUserLogDetails.Add(logG);
+            db.SaveChanges();
 
             //Müşteri İçin
             if (checkBoxMusteri.Checked == true && db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 2) == true)
@@ -88,7 +100,7 @@ namespace YazilimSinamaveTest
                 db.SaveChanges();
                 tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
                 log.LogDate = DateTime.Now;
-                log.UserLogDescription = userID + "'li Üyenin rolünü müşteri olmaktan çıkardı.";
+                log.UserLogDescription = userID + "Üye ID'li Üyenin rolünü müşteri olmaktan çıkardı.";
                 log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
                 db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
@@ -102,7 +114,7 @@ namespace YazilimSinamaveTest
                 db.SaveChanges();
                 tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
                 log.LogDate = DateTime.Now;
-                log.UserLogDescription = userID + "'li Üyenin rolünü müşteri olarak değiştirdi.";
+                log.UserLogDescription = userID + "Üye ID'li Üyenin rolünü müşteri olarak değiştirdi.";
                 log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
                 db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
@@ -124,7 +136,7 @@ namespace YazilimSinamaveTest
                 db.SaveChanges();
                 tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
                 log.LogDate = DateTime.Now;
-                log.UserLogDescription = userID + "'li Üyenin rolünü yazılımcı olmaktan çıkardı.";
+                log.UserLogDescription = userID + "Üye ID'li Üyenin rolünü yazılımcı olmaktan çıkardı.";
                 log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
                 db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
@@ -138,7 +150,7 @@ namespace YazilimSinamaveTest
                 db.SaveChanges();
                 tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
                 log.LogDate = DateTime.Now;
-                log.UserLogDescription = userID + "'li Üyenin rolünü yazılımcı olarak değiştirdi.";
+                log.UserLogDescription = userID + "Üye ID'li Üyenin rolünü yazılımcı olarak değiştirdi.";
                 log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
                 db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
@@ -160,7 +172,7 @@ namespace YazilimSinamaveTest
                 db.SaveChanges();
                 tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
                 log.LogDate = DateTime.Now;
-                log.UserLogDescription = userID + "'li Üyenin rolünü yöenetici olmaktan çıkardı.";
+                log.UserLogDescription = userID + "Üye ID'li Üyenin rolünü yöenetici olmaktan çıkardı.";
                 log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
                 db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
@@ -174,7 +186,7 @@ namespace YazilimSinamaveTest
                 db.SaveChanges();
                 tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
                 log.LogDate = DateTime.Now;
-                log.UserLogDescription = userID + "'li Üyenin rolünü yönetici olarak değiştirdi.";
+                log.UserLogDescription = userID + "Üye ID'li Üyenin rolünü yönetici olarak değiştirdi.";
                 log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
                 db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
