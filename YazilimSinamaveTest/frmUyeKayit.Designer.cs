@@ -188,6 +188,7 @@
             this.Name = "frmUyeKayit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kayıt Ol";
+            this.Load += new System.EventHandler(this.frmUyeKayit_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

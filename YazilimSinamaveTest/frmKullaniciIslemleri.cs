@@ -24,7 +24,7 @@ namespace YazilimSinamaveTest
                 comboBoxUyeler.Items.Add(item.UserNickname);
             }
             checkBoxYazilimci.Enabled = checkBoxYonetici.Enabled = checkBoxMusteri.Enabled = false;
-            textBoxAd.Enabled = textBoxKullanıcıAd.Enabled = textBoxParola.Enabled = textBoxSoyad.Enabled = false;
+           
         }
         int userID;
         private void comboBoxUyeler_SelectedIndexChanged(object sender, EventArgs e)
@@ -42,37 +42,48 @@ namespace YazilimSinamaveTest
             {
                 checkBoxYazilimci.Checked = true;
             }
+            else
+            {
+                checkBoxYazilimci.Checked = false;
+            }
             if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 2))
             {
                 checkBoxMusteri.Checked = true;
+            }
+            else
+            {
+                checkBoxMusteri.Checked = false;
             }
             if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 3))
             {
                 checkBoxYonetici.Checked = true;
             }
-
-        }
-
-        private void checkBoxMusteri_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            if(checkBoxMusteri.Checked==true)
-            {
-                tblUserRoles rol = new tblUserRoles();
-                rol.UserID = userID;
-                rol.RoleNameID = 2;
-                db.tblUserRoles.Add(rol);
-                db.SaveChanges();
-                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
-                log.LogDate = DateTime.Now;
-                log.UserLogDescription = userID+ "'li Üyenin rolünü müşteri olarak değiştirdi.";
-                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
-                db.tblUserLogDetails.Add(log);
-                db.SaveChanges();
-            }
             else
             {
-                tblUserRoles rol = db.tblUserRoles.Where(x=>x.RoleNameID==2&&x.UserID==userID).FirstOrDefault();
+                checkBoxYonetici.Checked = false;
+            }
+
+        }
+        
+        
+
+        private void btnKullaniciGuncelle_Click(object sender, EventArgs e)
+        {
+            tblUsers userguncelle = db.tblUsers.Where(x => x.UsersID == userID).FirstOrDefault();
+            userguncelle.UserName = textBoxAd.Text;
+            userguncelle.UserNickname = textBoxKullanıcıAd.Text;
+            userguncelle.UserPassword = textBoxParola.Text;
+            userguncelle.UserSurname = textBoxSoyad.Text;
+            db.SaveChanges();
+
+            //Müşteri İçin
+            if (checkBoxMusteri.Checked == true && db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 2) == true)
+            {
+                checkBoxMusteri.Checked = true;
+            }
+            else if (checkBoxMusteri.Checked == false && db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 2)==true)
+            {
+                tblUserRoles rol = db.tblUserRoles.Where(x => x.RoleNameID == 2 && x.UserID == userID).FirstOrDefault();
                 db.tblUserRoles.Remove(rol);
                 db.SaveChanges();
                 tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
@@ -82,12 +93,43 @@ namespace YazilimSinamaveTest
                 db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
             }
-                
-        }
-
-        private void checkBoxYazilimci_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxYazilimci.Checked == true)
+            else if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 2) == false && checkBoxMusteri.Checked == true)
+            {
+                tblUserRoles rol = new tblUserRoles();
+                rol.UserID = userID;
+                rol.RoleNameID = 2;
+                db.tblUserRoles.Add(rol);
+                db.SaveChanges();
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = userID + "'li Üyenin rolünü müşteri olarak değiştirdi.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
+                db.SaveChanges();
+            }
+            else if(db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 2)==false&&checkBoxMusteri.Checked==false)
+            {
+                checkBoxMusteri.Checked = false;
+            }
+            bool yazilimci = db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 1);
+            //Yazılımcı için
+            if (checkBoxYazilimci.Checked == true && yazilimci == true)
+            {
+                checkBoxYazilimci.Checked = true;
+            }
+            else if (checkBoxYazilimci.Checked == false && yazilimci == true)
+            {
+                tblUserRoles rol = db.tblUserRoles.Where(x => x.RoleNameID == 1 && x.UserID == userID).FirstOrDefault();
+                db.tblUserRoles.Remove(rol);
+                db.SaveChanges();
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = userID + "'li Üyenin rolünü yazılımcı olmaktan çıkardı.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
+                db.SaveChanges();
+            }
+            else if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 1) == false && checkBoxYazilimci.Checked == true)
             {
                 tblUserRoles rol = new tblUserRoles();
                 rol.UserID = userID;
@@ -101,23 +143,29 @@ namespace YazilimSinamaveTest
                 db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
             }
-            else
+            else if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 1) == false && checkBoxYazilimci.Checked == false)
             {
-                tblUserRoles rol = db.tblUserRoles.Where(x => x.RoleNameID == 1 && x.UserID == userID).FirstOrDefault();
+                checkBoxMusteri.Checked = false;
+            }
+
+            //Yönetici İçin
+            if (checkBoxYonetici.Checked == true && db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 3) == true)
+            {
+                checkBoxYonetici.Checked = true;
+            }
+            else if (checkBoxYonetici.Checked == false && db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 3) == true)
+            {
+                tblUserRoles rol = db.tblUserRoles.Where(x => x.RoleNameID == 3 && x.UserID == userID).FirstOrDefault();
                 db.tblUserRoles.Remove(rol);
                 db.SaveChanges();
                 tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
                 log.LogDate = DateTime.Now;
-                log.UserLogDescription = userID + "'li Üyenin rolünü yazılımcı olmaktan çıkardı.";
+                log.UserLogDescription = userID + "'li Üyenin rolünü yöenetici olmaktan çıkardı.";
                 log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
                 db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
             }
-        }
-
-        private void checkBoxYonetici_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxYonetici.Checked == true)
+            else if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 3) == false && checkBoxYonetici.Checked == true)
             {
                 tblUserRoles rol = new tblUserRoles();
                 rol.UserID = userID;
@@ -131,23 +179,14 @@ namespace YazilimSinamaveTest
                 db.tblUserLogDetails.Add(log);
                 db.SaveChanges();
             }
-            else
+            else if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 3) == false && checkBoxYonetici.Checked == false)
             {
-                tblUserRoles rol = db.tblUserRoles.Where(x => x.RoleNameID == 3 && x.UserID == userID).FirstOrDefault();
-                db.tblUserRoles.Remove(rol);
-                db.SaveChanges();
-                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
-                log.LogDate = DateTime.Now;
-                log.UserLogDescription = userID + "'li Üyenin rolünü yönetici olmaktan çıkardı.";
-                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
-                db.tblUserLogDetails.Add(log);
-                db.SaveChanges();
+                checkBoxMusteri.Checked = false;
             }
-        }
 
-        private void btnKulGuncelle_Click(object sender, EventArgs e)
-        {
-           
+
+
+
         }
     }
 }

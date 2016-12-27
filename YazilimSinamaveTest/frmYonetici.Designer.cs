@@ -447,7 +447,7 @@
             // 
             this.btnKulIslemleri.Location = new System.Drawing.Point(814, 12);
             this.btnKulIslemleri.Name = "btnKulIslemleri";
-            this.btnKulIslemleri.Size = new System.Drawing.Size(27, 416);
+            this.btnKulIslemleri.Size = new System.Drawing.Size(27, 319);
             this.btnKulIslemleri.TabIndex = 6;
             this.btnKulIslemleri.Text = "K\r\nU\r\nL\r\nL\r\nA\r\nN\r\nI\r\nC\r\nI\r\n\r\nR\r\nO\r\nL\r\n\r\nİ\r\nŞ\r\nL\r\nE\r\nM\r\nL\r\nE\r\nR\r\nİ\r\n";
             this.btnKulIslemleri.UseVisualStyleBackColor = true;
