@@ -142,9 +142,9 @@
             this.comboBoxDllList = new System.Windows.Forms.ComboBox();
             this.comboBoxProcedure = new System.Windows.Forms.ComboBox();
             this.comboBoxTable = new System.Windows.Forms.ComboBox();
-            this.comboBoxAnaliz = new System.Windows.Forms.ComboBox();
             this.lblTable = new System.Windows.Forms.Label();
             this.lblAnaliz = new System.Windows.Forms.Label();
+            this.comboBoxAnaliz = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar10)).BeginInit();
@@ -162,6 +162,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.comboBoxAnaliz);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
@@ -275,7 +276,6 @@
             this.groupBox1.Controls.Add(this.comboBoxDllList);
             this.groupBox1.Controls.Add(this.comboBoxProcedure);
             this.groupBox1.Controls.Add(this.comboBoxTable);
-            this.groupBox1.Controls.Add(this.comboBoxAnaliz);
             this.groupBox1.Controls.Add(this.lblTable);
             this.groupBox1.Controls.Add(this.lblAnaliz);
             this.groupBox1.Location = new System.Drawing.Point(8, 12);
@@ -1209,6 +1209,8 @@
             // 
             // comboBoxText5
             // 
+            this.comboBoxText5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxText5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxText5.FormattingEnabled = true;
             this.comboBoxText5.Location = new System.Drawing.Point(90, 321);
             this.comboBoxText5.Name = "comboBoxText5";
@@ -1217,6 +1219,8 @@
             // 
             // comboBoxTest4
             // 
+            this.comboBoxTest4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTest4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxTest4.FormattingEnabled = true;
             this.comboBoxTest4.Location = new System.Drawing.Point(90, 293);
             this.comboBoxTest4.Name = "comboBoxTest4";
@@ -1225,6 +1229,8 @@
             // 
             // comboBoxTest3
             // 
+            this.comboBoxTest3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTest3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxTest3.FormattingEnabled = true;
             this.comboBoxTest3.Location = new System.Drawing.Point(90, 265);
             this.comboBoxTest3.Name = "comboBoxTest3";
@@ -1233,6 +1239,8 @@
             // 
             // comboBoxTest2
             // 
+            this.comboBoxTest2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTest2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxTest2.FormattingEnabled = true;
             this.comboBoxTest2.Location = new System.Drawing.Point(90, 237);
             this.comboBoxTest2.Name = "comboBoxTest2";
@@ -1241,6 +1249,8 @@
             // 
             // comboBoxTest1
             // 
+            this.comboBoxTest1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTest1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxTest1.FormattingEnabled = true;
             this.comboBoxTest1.Location = new System.Drawing.Point(90, 209);
             this.comboBoxTest1.Name = "comboBoxTest1";
@@ -1249,6 +1259,8 @@
             // 
             // comboBoxArayuz
             // 
+            this.comboBoxArayuz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxArayuz.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxArayuz.FormattingEnabled = true;
             this.comboBoxArayuz.Location = new System.Drawing.Point(90, 181);
             this.comboBoxArayuz.Name = "comboBoxArayuz";
@@ -1257,6 +1269,8 @@
             // 
             // comboBoxDllIslem
             // 
+            this.comboBoxDllIslem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDllIslem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxDllIslem.FormattingEnabled = true;
             this.comboBoxDllIslem.Location = new System.Drawing.Point(90, 153);
             this.comboBoxDllIslem.Name = "comboBoxDllIslem";
@@ -1265,6 +1279,8 @@
             // 
             // comboBoxDllList
             // 
+            this.comboBoxDllList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxDllList.FormattingEnabled = true;
             this.comboBoxDllList.Location = new System.Drawing.Point(90, 125);
             this.comboBoxDllList.Name = "comboBoxDllList";
@@ -1273,6 +1289,8 @@
             // 
             // comboBoxProcedure
             // 
+            this.comboBoxProcedure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxProcedure.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxProcedure.FormattingEnabled = true;
             this.comboBoxProcedure.Location = new System.Drawing.Point(90, 97);
             this.comboBoxProcedure.Name = "comboBoxProcedure";
@@ -1281,19 +1299,14 @@
             // 
             // comboBoxTable
             // 
+            this.comboBoxTable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxTable.FormattingEnabled = true;
             this.comboBoxTable.Location = new System.Drawing.Point(90, 69);
             this.comboBoxTable.Name = "comboBoxTable";
             this.comboBoxTable.Size = new System.Drawing.Size(195, 21);
             this.comboBoxTable.TabIndex = 114;
-            // 
-            // comboBoxAnaliz
-            // 
-            this.comboBoxAnaliz.FormattingEnabled = true;
-            this.comboBoxAnaliz.Location = new System.Drawing.Point(90, 41);
-            this.comboBoxAnaliz.Name = "comboBoxAnaliz";
-            this.comboBoxAnaliz.Size = new System.Drawing.Size(195, 21);
-            this.comboBoxAnaliz.TabIndex = 113;
+            this.comboBoxTable.SelectedIndexChanged += new System.EventHandler(this.comboBoxTable_SelectedIndexChanged);
             // 
             // lblTable
             // 
@@ -1314,6 +1327,16 @@
             this.lblAnaliz.Size = new System.Drawing.Size(46, 15);
             this.lblAnaliz.TabIndex = 111;
             this.lblAnaliz.Text = "Analiz";
+            // 
+            // comboBoxAnaliz
+            // 
+            this.comboBoxAnaliz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAnaliz.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBoxAnaliz.FormattingEnabled = true;
+            this.comboBoxAnaliz.Location = new System.Drawing.Point(90, 40);
+            this.comboBoxAnaliz.Name = "comboBoxAnaliz";
+            this.comboBoxAnaliz.Size = new System.Drawing.Size(195, 21);
+            this.comboBoxAnaliz.TabIndex = 229;
             // 
             // frmSurec
             // 
@@ -1456,7 +1479,6 @@
         private System.Windows.Forms.ComboBox comboBoxDllList;
         private System.Windows.Forms.ComboBox comboBoxProcedure;
         private System.Windows.Forms.ComboBox comboBoxTable;
-        private System.Windows.Forms.ComboBox comboBoxAnaliz;
         private System.Windows.Forms.Label lblTable;
         private System.Windows.Forms.Label lblAnaliz;
         private System.Windows.Forms.Label label7;
@@ -1465,5 +1487,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxAnaliz;
     }
 }

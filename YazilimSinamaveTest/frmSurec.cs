@@ -812,5 +812,10 @@ namespace YazilimSinamaveTest
         {
 
         }
+
+        private void comboBoxTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
