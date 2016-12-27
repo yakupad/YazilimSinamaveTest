@@ -296,31 +296,38 @@ namespace YazilimSinamaveTest
         public static int ProcessID = 0;
         private void treeViewGorevler_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            btnSurecAkisiGoruntule.Enabled = true;
-            listBoxYazilimcilar.Items.Clear();
-            IndexNode = Convert.ToInt32(e.Node.Name);
-            var doldurgorev = db.tblProcess.Where(x => x.ProcessID == IndexNode).FirstOrDefault();
-            txtGorevAdi.Text = doldurgorev.ProcessName;
-            dateTimePickerBaslangic.Value =Convert.ToDateTime(doldurgorev.StartDate);
-            dateTimePickerBitis.Value =Convert.ToDateTime(doldurgorev.FinishDate);
-            txtOncelik.Text = doldurgorev.Priority.ToString();
-            txtGorevSuresi.Text = doldurgorev.Duration.ToString();
-            richTextBoxAciklama.Text = doldurgorev.Descriptions;
-            richTextBoxNotlar.Text = doldurgorev.Notes;
-            progressBarGorev.Value = doldurgorev.CompleteRate.Value;
-            lblTamamlanmaOrani.Text= doldurgorev.CompleteRate.Value.ToString();
-            lblprocessID.Text = doldurgorev.ProcessID.ToString();
-            lblTOrani.Text = "%" + doldurgorev.CompleteRate.Value;
-            dateTimePickerOlusturulma.Value = doldurgorev.CreatedDate.Value;
-            txtSurecSahibi.Text = doldurgorev.tblProjects.CreateUserName;
-            foreach (var item in db.tblUserProcess.Where(x => x.tblProcess.ProcessID == IndexNode)) 
+            if (e.Node.Name == "0")
             {
-                listBoxYazilimcilar.Items.Add(item.tblUsers.UserNickname);
-            }
 
-            ProcessID = doldurgorev.ProcessID;
-            treeViewGorevler.ExpandAll();
-            treeViewGorevler.Update();
+            }
+            else
+            {
+                btnSurecAkisiGoruntule.Enabled = true;
+                listBoxYazilimcilar.Items.Clear();
+                IndexNode = Convert.ToInt32(e.Node.Name);
+                var doldurgorev = db.tblProcess.Where(x => x.ProcessID == IndexNode).FirstOrDefault();
+                txtGorevAdi.Text = doldurgorev.ProcessName;
+                dateTimePickerBaslangic.Value = Convert.ToDateTime(doldurgorev.StartDate);
+                dateTimePickerBitis.Value = Convert.ToDateTime(doldurgorev.FinishDate);
+                txtOncelik.Text = doldurgorev.Priority.ToString();
+                txtGorevSuresi.Text = doldurgorev.Duration.ToString();
+                richTextBoxAciklama.Text = doldurgorev.Descriptions;
+                richTextBoxNotlar.Text = doldurgorev.Notes;
+                progressBarGorev.Value = doldurgorev.CompleteRate.Value;
+                lblTamamlanmaOrani.Text = doldurgorev.CompleteRate.Value.ToString();
+                lblprocessID.Text = doldurgorev.ProcessID.ToString();
+                lblTOrani.Text = "%" + doldurgorev.CompleteRate.Value;
+                dateTimePickerOlusturulma.Value = doldurgorev.CreatedDate.Value;
+                txtSurecSahibi.Text = doldurgorev.tblProjects.CreateUserName;
+                foreach (var item in db.tblUserProcess.Where(x => x.tblProcess.ProcessID == IndexNode))
+                {
+                    listBoxYazilimcilar.Items.Add(item.tblUsers.UserNickname);
+                }
+
+                ProcessID = doldurgorev.ProcessID;
+                treeViewGorevler.ExpandAll();
+                treeViewGorevler.Update();
+            }
         }
 
         private void btnYazilimciSil_Click(object sender, EventArgs e)
