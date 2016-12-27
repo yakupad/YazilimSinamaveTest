@@ -191,9 +191,6 @@
     <Compile Include="tblWorkFollow.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ToPdfClass.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="yazilimsinamaDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

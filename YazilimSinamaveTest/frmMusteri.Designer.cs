@@ -346,7 +346,7 @@
             // 
             // progressBarTamamlanmaOrani
             // 
-            this.progressBarTamamlanmaOrani.Location = new System.Drawing.Point(224, 140);
+            this.progressBarTamamlanmaOrani.Location = new System.Drawing.Point(224, 168);
             this.progressBarTamamlanmaOrani.Name = "progressBarTamamlanmaOrani";
             this.progressBarTamamlanmaOrani.Size = new System.Drawing.Size(85, 21);
             this.progressBarTamamlanmaOrani.TabIndex = 19;
@@ -364,7 +364,7 @@
             // lblOran
             // 
             this.lblOran.AutoSize = true;
-            this.lblOran.Location = new System.Drawing.Point(260, 176);
+            this.lblOran.Location = new System.Drawing.Point(260, 173);
             this.lblOran.Name = "lblOran";
             this.lblOran.Size = new System.Drawing.Size(10, 13);
             this.lblOran.TabIndex = 21;

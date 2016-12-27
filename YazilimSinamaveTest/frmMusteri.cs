@@ -234,18 +234,26 @@ namespace YazilimSinamaveTest
             if (projeID!=0)
             {
                 tblProjects silinecekproje = db.tblProjects.Where(x => x.ProjectID == projeID).FirstOrDefault();
-                db.tblProjects.Remove(silinecekproje);
-                db.SaveChanges();
-            tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
-            log.LogDate = DateTime.Now;
-            log.UserLogDescription = "Projeyi sildi.";
-            log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
-            db.tblUserLogDetails.Add(log);
-            db.SaveChanges();
-            DataGridDoldur();
+                if (silinecekproje!=null)
+                {
+                    db.tblProjects.Remove(silinecekproje);
+                    db.SaveChanges();
+                    tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                    log.LogDate = DateTime.Now;
+                    log.UserLogDescription = "Projeyi sildi.";
+                    log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                    db.tblUserLogDetails.Add(log);
+                    db.SaveChanges();
+                    DataGridDoldur();
 
-                MessageBox.Show("Projeniz Silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AlanlariSifirla();
+                    MessageBox.Show("Projeniz Silindi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AlanlariSifirla();
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen Proje Seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+           
             }
             else
             {

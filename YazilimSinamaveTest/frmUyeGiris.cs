@@ -50,7 +50,7 @@ namespace YazilimSinamaveTest
                 }
                 else
                 {
-                    MessageBox.Show("Giriş Yapılamadı","Hata!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Hatalı Kullanıcı Adı Veya Şifre","Hata!",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
 
             }

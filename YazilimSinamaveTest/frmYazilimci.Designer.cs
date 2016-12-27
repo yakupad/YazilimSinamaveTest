@@ -194,6 +194,7 @@
             // 
             // groupBoxGörev
             // 
+            this.groupBoxGörev.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxGörev.Controls.Add(this.lblYuzde);
             this.groupBoxGörev.Controls.Add(this.label1);
             this.groupBoxGörev.Controls.Add(this.lblAciklamalar);
@@ -218,8 +219,9 @@
             // lblYuzde
             // 
             this.lblYuzde.AutoSize = true;
-            this.lblYuzde.BackColor = System.Drawing.Color.Transparent;
-            this.lblYuzde.Location = new System.Drawing.Point(255, 99);
+            this.lblYuzde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblYuzde.ForeColor = System.Drawing.Color.White;
+            this.lblYuzde.Location = new System.Drawing.Point(302, 118);
             this.lblYuzde.Name = "lblYuzde";
             this.lblYuzde.Size = new System.Drawing.Size(15, 13);
             this.lblYuzde.TabIndex = 13;
@@ -260,6 +262,7 @@
             // 
             this.richTextBoxNotlar.Location = new System.Drawing.Point(649, 39);
             this.richTextBoxNotlar.Name = "richTextBoxNotlar";
+            this.richTextBoxNotlar.ReadOnly = true;
             this.richTextBoxNotlar.Size = new System.Drawing.Size(245, 98);
             this.richTextBoxNotlar.TabIndex = 8;
             this.richTextBoxNotlar.Text = "";
@@ -268,6 +271,7 @@
             // 
             this.richTextBoxAciklama.Location = new System.Drawing.Point(385, 39);
             this.richTextBoxAciklama.Name = "richTextBoxAciklama";
+            this.richTextBoxAciklama.ReadOnly = true;
             this.richTextBoxAciklama.Size = new System.Drawing.Size(244, 98);
             this.richTextBoxAciklama.TabIndex = 7;
             this.richTextBoxAciklama.Text = "";
@@ -333,7 +337,7 @@
             // 
             // trackBarTorani
             // 
-            this.trackBarTorani.Location = new System.Drawing.Point(249, 64);
+            this.trackBarTorani.Location = new System.Drawing.Point(253, 64);
             this.trackBarTorani.Maximum = 100;
             this.trackBarTorani.Name = "trackBarTorani";
             this.trackBarTorani.Size = new System.Drawing.Size(115, 45);
@@ -359,12 +363,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackgroundImage = global::YazilimSinamaveTest.Properties.Resources.bck;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(933, 488);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.groupBoxGörev);
             this.Controls.Add(this.dataGridViewGorevler);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmYazilimci";
-            this.Text = "frmYazilimci";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Yazılımcı";
             this.Load += new System.EventHandler(this.frmYazilimci_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGorevler)).EndInit();
             this.groupBoxGörev.ResumeLayout(false);
