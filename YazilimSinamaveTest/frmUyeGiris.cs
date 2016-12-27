@@ -17,7 +17,15 @@ namespace YazilimSinamaveTest
  
         public frmUyeGiris()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         yazilimsinamaEntities db = new yazilimsinamaEntities();
         
@@ -25,8 +33,10 @@ namespace YazilimSinamaveTest
         public static int uyeID = 0;
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            if (txtKulAdi.Text!="" ||txtSifre.Text!="")
+            try
             {
+              if (txtKulAdi.Text!="" ||txtSifre.Text!="")
+              {
                 if (db.tblUsers.Any(x => x.UserNickname == txtKulAdi.Text && x.UserPassword == txtSifre.Text))
                 {
                     frmRolSecimi frmrol = new frmRolSecimi();
@@ -44,6 +54,13 @@ namespace YazilimSinamaveTest
             {
                 MessageBox.Show("Lütfen Kullanıcı Adı Ve Şifre Alanını Boş Bırakmayınız!!!");
             }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void lblUyelik_Click(object sender, EventArgs e)
@@ -54,14 +71,31 @@ namespace YazilimSinamaveTest
 
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
-            frmUyeKayit frmkayit = new frmUyeKayit();
-            this.Hide();
-            frmkayit.Show();
+            try
+            {
+                frmUyeKayit frmkayit = new frmUyeKayit();
+                this.Hide();
+                frmkayit.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+           
         }
 
         private void frmUyeGiris_Load(object sender, EventArgs e)
         {
-            txtKulAdi.Select();
+            try
+            {
+                txtKulAdi.Select();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
