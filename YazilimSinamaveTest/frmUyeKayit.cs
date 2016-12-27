@@ -16,12 +16,23 @@ namespace YazilimSinamaveTest
         
         public frmUyeKayit()
         {
-            InitializeComponent();
+            try
+            {
+                  InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnUyeEkle_Click(object sender, EventArgs e)
         {
-            if (txtKulAdi.Text == "" || txtKulIsmi.Text == "" || txtKulSoyad.Text == "" || txtKulParola.Text == "")
+            try
+            {
+                if (txtKulAdi.Text == "" || txtKulIsmi.Text == "" || txtKulSoyad.Text == "" || txtKulParola.Text == "")
             {
                 MessageBox.Show("Boş Alanları Lütfen Doldurunuz!");
             }
@@ -46,6 +57,13 @@ namespace YazilimSinamaveTest
                 this.Hide();
                 giris.Show();
             }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void lblUyeyim_Click(object sender, EventArgs e)
@@ -55,9 +73,18 @@ namespace YazilimSinamaveTest
 
         private void btnVazgec_Click(object sender, EventArgs e)
         {
-            frmUyeGiris giris = new frmUyeGiris();
-            this.Hide();
-            giris.Show();
+            try
+            {
+                    frmUyeGiris giris = new frmUyeGiris();
+                    this.Hide();
+                    giris.Show();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         
