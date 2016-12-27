@@ -175,7 +175,7 @@
             // lblAciklamalar
             // 
             this.lblAciklamalar.AutoSize = true;
-            this.lblAciklamalar.Location = new System.Drawing.Point(9, 163);
+            this.lblAciklamalar.Location = new System.Drawing.Point(9, 156);
             this.lblAciklamalar.Name = "lblAciklamalar";
             this.lblAciklamalar.Size = new System.Drawing.Size(61, 13);
             this.lblAciklamalar.TabIndex = 32;
@@ -327,9 +327,9 @@
             // 
             // richTextBoxAciklama
             // 
-            this.richTextBoxAciklama.Location = new System.Drawing.Point(6, 179);
+            this.richTextBoxAciklama.Location = new System.Drawing.Point(6, 172);
             this.richTextBoxAciklama.Name = "richTextBoxAciklama";
-            this.richTextBoxAciklama.Size = new System.Drawing.Size(318, 61);
+            this.richTextBoxAciklama.Size = new System.Drawing.Size(318, 68);
             this.richTextBoxAciklama.TabIndex = 10;
             this.richTextBoxAciklama.Text = "";
             this.richTextBoxAciklama.TextChanged += new System.EventHandler(this.richTextBoxAciklama_TextChanged);
@@ -369,6 +369,8 @@
             // 
             // cmbYazilimcilar
             // 
+            this.cmbYazilimcilar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbYazilimcilar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbYazilimcilar.FormattingEnabled = true;
             this.cmbYazilimcilar.Location = new System.Drawing.Point(333, 85);
             this.cmbYazilimcilar.Name = "cmbYazilimcilar";
@@ -427,6 +429,8 @@
             // 
             // cmbProjeler
             // 
+            this.cmbProjeler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProjeler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbProjeler.FormattingEnabled = true;
             this.cmbProjeler.Location = new System.Drawing.Point(12, 29);
             this.cmbProjeler.Name = "cmbProjeler";
