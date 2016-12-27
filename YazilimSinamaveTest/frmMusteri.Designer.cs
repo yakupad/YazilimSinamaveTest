@@ -290,7 +290,7 @@
             // 
             // btnProjeEkle
             // 
-            this.btnProjeEkle.Location = new System.Drawing.Point(224, 220);
+            this.btnProjeEkle.Location = new System.Drawing.Point(224, 217);
             this.btnProjeEkle.Name = "btnProjeEkle";
             this.btnProjeEkle.Size = new System.Drawing.Size(85, 24);
             this.btnProjeEkle.TabIndex = 13;
@@ -311,7 +311,7 @@
             // 
             // btnGuncelle
             // 
-            this.btnGuncelle.Location = new System.Drawing.Point(224, 246);
+            this.btnGuncelle.Location = new System.Drawing.Point(224, 243);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(85, 23);
             this.btnGuncelle.TabIndex = 15;
@@ -346,15 +346,14 @@
             // 
             // progressBarTamamlanmaOrani
             // 
-            this.progressBarTamamlanmaOrani.BackColor = System.Drawing.SystemColors.Control;
-            this.progressBarTamamlanmaOrani.Location = new System.Drawing.Point(224, 170);
+            this.progressBarTamamlanmaOrani.Location = new System.Drawing.Point(224, 140);
             this.progressBarTamamlanmaOrani.Name = "progressBarTamamlanmaOrani";
             this.progressBarTamamlanmaOrani.Size = new System.Drawing.Size(85, 21);
             this.progressBarTamamlanmaOrani.TabIndex = 19;
             // 
             // btnProjeSil
             // 
-            this.btnProjeSil.Location = new System.Drawing.Point(224, 195);
+            this.btnProjeSil.Location = new System.Drawing.Point(224, 192);
             this.btnProjeSil.Name = "btnProjeSil";
             this.btnProjeSil.Size = new System.Drawing.Size(85, 24);
             this.btnProjeSil.TabIndex = 20;
