@@ -94,7 +94,7 @@ namespace YazilimSinamaveTest
 
                                 cmbYazilimcilar.Items.Add(yazilimci.tblUsers.UserNickname);
                             }
-                            cmbProjeler.Items.Clear();
+                            
                             listBoxYazilimcilar.Items.Clear();
 
                         }
@@ -143,7 +143,7 @@ namespace YazilimSinamaveTest
 
                             }
 
-                        cmbProjeler.Items.Clear();
+                        
                         listBoxYazilimcilar.Items.Clear();
                         txtGorevAdi.Text = txtGorevSuresi.Text = txtOncelik.Text = richTextBoxAciklama.Text = richTextBoxNotlar.Text = " ";
                         dateTimePickerBaslangic.Value = dateTimePickerBitis.Value = DateTime.Now;
@@ -241,6 +241,7 @@ namespace YazilimSinamaveTest
         {
             try
             {
+                groupBox1.Enabled = false;
                 dateTimePickerOlusturulma.Value = DateTime.Now;
             
             var projeler = db.tblProjects.Where(x => x.ProjectUserID == frmUyeGiris.uyeID);
@@ -392,7 +393,7 @@ namespace YazilimSinamaveTest
                 GorevleriListele(db.tblProjects.FirstOrDefault(x => x.ProjectName == cmbProjeler.SelectedItem.ToString()).ProjectID);
                 treeViewGorevler.ExpandAll();
                 cmbYazilimcilar.Items.Clear();
-                listBoxYazilimcilar.Items.Clear();
+                
                 txtSurecSahibi.Text = "";
                 var yazilimcilar = db.tblUserRoles.Where(x => x.tblRoleNames.RoleName == "Yazılımcı");
                 foreach (var yazilimci in yazilimcilar)
@@ -427,6 +428,7 @@ namespace YazilimSinamaveTest
             }
             else
             {
+                    groupBox1.Enabled = true;
                 btnSurecAkisiGoruntule.Enabled = true;
                 listBoxYazilimcilar.Items.Clear();
                 IndexNode = Convert.ToInt32(e.Node.Name);
@@ -511,15 +513,19 @@ namespace YazilimSinamaveTest
                 MessageBox.Show("Lütfen silinecek süreci seçiniz!");
             }
             else
-            {
+                {
+                    cmbProjeler.SelectedItem = cmbProjeler.Items[0].ToString();
                 int processID = Convert.ToInt32(lblprocessID.Text);
                 tblProcess silinecekgorev = db.tblProcess.FirstOrDefault(x => x.ProcessID == processID);
                 db.tblProcess.Remove(silinecekgorev);
                 db.SaveChanges();
-                treeViewGorevler.Nodes.Clear();
-                GorevleriListele(db.tblProjects.FirstOrDefault(x => x.ProjectName == cmbProjeler.SelectedItem.ToString()).ProjectID);
-                treeViewGorevler.ExpandAll();
-                txtGorevAdi.Text = txtGorevSuresi.Text = txtOncelik.Text = richTextBoxAciklama.Text = richTextBoxNotlar.Text = txtSurecSahibi.Text = " ";
+                    
+                    
+                    treeViewGorevler.Nodes.Clear();
+                    treeViewGorevler.Nodes.Add(cmbProjeler.SelectedItem.ToString());
+                    GorevleriListele(db.tblProjects.FirstOrDefault(x => x.ProjectName == cmbProjeler.SelectedItem.ToString()).ProjectID);
+                    treeViewGorevler.ExpandAll();
+                    txtGorevAdi.Text = txtGorevSuresi.Text = txtOncelik.Text = richTextBoxAciklama.Text = richTextBoxNotlar.Text = txtSurecSahibi.Text = " ";
                 dateTimePickerBaslangic.Value = dateTimePickerBitis.Value = dateTimePickerOlusturulma.Value = DateTime.Now;
                 progressBarGorev.Value = 0;
                 cmbYazilimcilar.Items.Clear();
@@ -531,6 +537,8 @@ namespace YazilimSinamaveTest
 
                     cmbYazilimcilar.Items.Add(yazilimci.tblUsers.UserNickname);
                 }
+                    
+
                     tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
                     log.LogDate = DateTime.Now;
                     log.UserLogDescription = "Görev Sildi.";
