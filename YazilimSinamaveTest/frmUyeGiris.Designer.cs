@@ -49,6 +49,7 @@
             this.txtKulAdi.Name = "txtKulAdi";
             this.txtKulAdi.Size = new System.Drawing.Size(115, 29);
             this.txtKulAdi.TabIndex = 4;
+            this.txtKulAdi.TextChanged += new System.EventHandler(this.txtKulAdi_TextChanged);
             // 
             // txtSifre
             // 

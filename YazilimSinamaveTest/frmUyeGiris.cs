@@ -101,5 +101,20 @@ namespace YazilimSinamaveTest
             }
             
         }
+        private void buyuksekucukyap()
+        {
+            foreach (char chr in txtKulAdi.Text)
+            {
+                if (char.IsUpper(chr))
+                {
+                    txtKulAdi.Text = txtKulAdi.Text.Replace(chr, char.ToLower(chr));
+                }
+            }
+        }
+        private void txtKulAdi_TextChanged(object sender, EventArgs e)
+        {
+           
+           
+        }
     }
 }
