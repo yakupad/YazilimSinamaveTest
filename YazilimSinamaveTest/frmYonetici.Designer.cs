@@ -34,6 +34,10 @@
             this.treeViewGorevler = new System.Windows.Forms.TreeView();
             this.btnGorevEkle = new System.Windows.Forms.Button();
             this.groupBoxIslemler = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGuncelle = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
+            this.btnTemizle = new System.Windows.Forms.Button();
             this.lblTOrani = new System.Windows.Forms.Label();
             this.btnSurecAkisiGoruntule = new System.Windows.Forms.Button();
             this.lblNotlar = new System.Windows.Forms.Label();
@@ -49,9 +53,6 @@
             this.lblBaslangicTarihi = new System.Windows.Forms.Label();
             this.lblYazılımcıAta = new System.Windows.Forms.Label();
             this.lblGorevAdi = new System.Windows.Forms.Label();
-            this.btnGuncelle = new System.Windows.Forms.Button();
-            this.btnSil = new System.Windows.Forms.Button();
-            this.btnTemizle = new System.Windows.Forms.Button();
             this.txtGorevAdi = new System.Windows.Forms.TextBox();
             this.btnYazilimciSil = new System.Windows.Forms.Button();
             this.richTextBoxAciklama = new System.Windows.Forms.RichTextBox();
@@ -71,7 +72,6 @@
             this.btnKulIslemleri = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBoxIslemler.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -142,6 +142,50 @@
             this.groupBoxIslemler.TabStop = false;
             this.groupBoxIslemler.Text = "groupBoxGorevIslemleri";
             this.groupBoxIslemler.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnGorevEkle);
+            this.groupBox1.Controls.Add(this.btnGuncelle);
+            this.groupBox1.Controls.Add(this.btnSil);
+            this.groupBox1.Controls.Add(this.btnTemizle);
+            this.groupBox1.Location = new System.Drawing.Point(336, 241);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(181, 159);
+            this.groupBox1.TabIndex = 36;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "İşlemler";
+            // 
+            // btnGuncelle
+            // 
+            this.btnGuncelle.Enabled = false;
+            this.btnGuncelle.Location = new System.Drawing.Point(6, 93);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(165, 28);
+            this.btnGuncelle.TabIndex = 17;
+            this.btnGuncelle.Text = "Görev Güncelle";
+            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+            // 
+            // btnSil
+            // 
+            this.btnSil.Location = new System.Drawing.Point(6, 127);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(165, 26);
+            this.btnSil.TabIndex = 18;
+            this.btnSil.Text = "Görev Sil";
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.Location = new System.Drawing.Point(6, 19);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(165, 31);
+            this.btnTemizle.TabIndex = 20;
+            this.btnTemizle.Text = "Temizle";
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // lblTOrani
             // 
@@ -276,36 +320,6 @@
             this.lblGorevAdi.Size = new System.Drawing.Size(54, 13);
             this.lblGorevAdi.TabIndex = 21;
             this.lblGorevAdi.Text = "Görev Adı";
-            // 
-            // btnGuncelle
-            // 
-            this.btnGuncelle.Location = new System.Drawing.Point(6, 93);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(165, 28);
-            this.btnGuncelle.TabIndex = 17;
-            this.btnGuncelle.Text = "Görev Güncelle";
-            this.btnGuncelle.UseVisualStyleBackColor = true;
-            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
-            // 
-            // btnSil
-            // 
-            this.btnSil.Location = new System.Drawing.Point(6, 127);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(165, 26);
-            this.btnSil.TabIndex = 18;
-            this.btnSil.Text = "Görev Sil";
-            this.btnSil.UseVisualStyleBackColor = true;
-            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
-            // 
-            // btnTemizle
-            // 
-            this.btnTemizle.Location = new System.Drawing.Point(6, 19);
-            this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(165, 31);
-            this.btnTemizle.TabIndex = 20;
-            this.btnTemizle.Text = "Temizle";
-            this.btnTemizle.UseVisualStyleBackColor = true;
-            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // txtGorevAdi
             // 
@@ -483,19 +497,6 @@
             this.button1.Text = "L\r\nO\r\nG\r\nL\r\nA\r\nR";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnGorevEkle);
-            this.groupBox1.Controls.Add(this.btnGuncelle);
-            this.groupBox1.Controls.Add(this.btnSil);
-            this.groupBox1.Controls.Add(this.btnTemizle);
-            this.groupBox1.Location = new System.Drawing.Point(336, 241);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(181, 159);
-            this.groupBox1.TabIndex = 36;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "İşlemler";
             // 
             // frmYonetici
             // 
