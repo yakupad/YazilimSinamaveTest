@@ -30,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Tüm Görevler");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Tüm Görevler");
             this.treeViewGorevler = new System.Windows.Forms.TreeView();
             this.btnGorevEkle = new System.Windows.Forms.Button();
             this.groupBoxIslemler = new System.Windows.Forms.GroupBox();
@@ -78,10 +78,10 @@
             // 
             this.treeViewGorevler.Location = new System.Drawing.Point(12, 53);
             this.treeViewGorevler.Name = "treeViewGorevler";
-            treeNode1.Name = "0";
-            treeNode1.Text = "Tüm Görevler";
+            treeNode2.Name = "0";
+            treeNode2.Text = "Tüm Görevler";
             this.treeViewGorevler.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeViewGorevler.Size = new System.Drawing.Size(259, 375);
             this.treeViewGorevler.TabIndex = 0;
             this.treeViewGorevler.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewGorevler_NodeMouseClick);
@@ -363,6 +363,7 @@
             // 
             this.dateTimePickerBaslangic.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerBaslangic.Location = new System.Drawing.Point(6, 85);
+            this.dateTimePickerBaslangic.MinDate = new System.DateTime(2016, 12, 28, 0, 0, 0, 0);
             this.dateTimePickerBaslangic.Name = "dateTimePickerBaslangic";
             this.dateTimePickerBaslangic.Size = new System.Drawing.Size(122, 20);
             this.dateTimePickerBaslangic.TabIndex = 6;
