@@ -133,10 +133,16 @@ namespace YazilimSinamaveTest
 
                                 cmbYazilimcilar.Items.Add(yazilimci.tblUsers.UserNickname);
                             }
+                                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                                log.LogDate = DateTime.Now;
+                                log.UserLogDescription = "Görev Ekledi.";
+                                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                                db.tblUserLogDetails.Add(log);
+                                db.SaveChanges();
 
 
+                            }
 
-                        }
                         cmbProjeler.Items.Clear();
                         listBoxYazilimcilar.Items.Clear();
                         txtGorevAdi.Text = txtGorevSuresi.Text = txtOncelik.Text = richTextBoxAciklama.Text = richTextBoxNotlar.Text = " ";
@@ -285,7 +291,13 @@ namespace YazilimSinamaveTest
                     seciliyazilimcilar.Add(Convert.ToInt32(db.tblUsers.FirstOrDefault(x => x.UserNickname == cmbYazilimcilar.SelectedItem.ToString()).UsersID));
                     cmbYazilimcilar.Items.Remove(cmbYazilimcilar.SelectedItem);
                     cmbYazilimcilar.Text = " ";
-                }
+                        tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                        log.LogDate = DateTime.Now;
+                        log.UserLogDescription = "Göreve Yazılımcı Ekledi.";
+                        log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                        db.tblUserLogDetails.Add(log);
+                        db.SaveChanges();
+                    }
             }
             }
             catch (Exception ex)
@@ -388,7 +400,13 @@ namespace YazilimSinamaveTest
 
                     cmbYazilimcilar.Items.Add(yazilimci.tblUsers.UserNickname);
                 }
-            }
+                    tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                    log.LogDate = DateTime.Now;
+                    log.UserLogDescription = "Görev Güncelledi.";
+                    log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                    db.tblUserLogDetails.Add(log);
+                    db.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
@@ -463,7 +481,14 @@ namespace YazilimSinamaveTest
                     tblUserProcess silinecek = db.tblUserProcess.FirstOrDefault(x => x.tblUsers.UserNickname == secilenyazilimci && x.ProcessID == processID);
                     db.tblUserProcess.Remove(silinecek);
                     db.SaveChanges();
-                }
+                        tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                        log.LogDate = DateTime.Now;
+                        log.UserLogDescription = "Göörevden yazılımcıyı kaldırdı.";
+                        log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                        db.tblUserLogDetails.Add(log);
+                        db.SaveChanges();
+                    }
+
             }
             
             }
@@ -506,7 +531,13 @@ namespace YazilimSinamaveTest
 
                     cmbYazilimcilar.Items.Add(yazilimci.tblUsers.UserNickname);
                 }
-            }
+                    tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                    log.LogDate = DateTime.Now;
+                    log.UserLogDescription = "Görev Sildi.";
+                    log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                    db.tblUserLogDetails.Add(log);
+                    db.SaveChanges();
+                }
 
             }
             catch (Exception ex)
@@ -552,6 +583,12 @@ txtGorevAdi.Text = txtGorevSuresi.Text = txtOncelik.Text = richTextBoxAciklama.T
 
         private void btnSurecAkisiGoruntule_Click(object sender, EventArgs e)
         {
+            tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+            log.LogDate = DateTime.Now;
+            log.UserLogDescription = "Süreç iş akışını görüntüledi.";
+            log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+            db.tblUserLogDetails.Add(log);
+            db.SaveChanges();
             frmSurec surecform = new frmSurec();
             surecform.Show();
         }

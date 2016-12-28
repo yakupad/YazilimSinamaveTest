@@ -133,6 +133,8 @@
             // 
             // cmbProjeYöneticisi
             // 
+            this.cmbProjeYöneticisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProjeYöneticisi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbProjeYöneticisi.FormattingEnabled = true;
             this.cmbProjeYöneticisi.Location = new System.Drawing.Point(90, 143);
             this.cmbProjeYöneticisi.Name = "cmbProjeYöneticisi";
@@ -346,9 +348,9 @@
             // 
             // progressBarTamamlanmaOrani
             // 
-            this.progressBarTamamlanmaOrani.Location = new System.Drawing.Point(224, 168);
+            this.progressBarTamamlanmaOrani.Location = new System.Drawing.Point(224, 143);
             this.progressBarTamamlanmaOrani.Name = "progressBarTamamlanmaOrani";
-            this.progressBarTamamlanmaOrani.Size = new System.Drawing.Size(85, 21);
+            this.progressBarTamamlanmaOrani.Size = new System.Drawing.Size(85, 46);
             this.progressBarTamamlanmaOrani.TabIndex = 19;
             // 
             // btnProjeSil
@@ -364,7 +366,7 @@
             // lblOran
             // 
             this.lblOran.AutoSize = true;
-            this.lblOran.Location = new System.Drawing.Point(260, 173);
+            this.lblOran.Location = new System.Drawing.Point(252, 159);
             this.lblOran.Name = "lblOran";
             this.lblOran.Size = new System.Drawing.Size(10, 13);
             this.lblOran.TabIndex = 21;

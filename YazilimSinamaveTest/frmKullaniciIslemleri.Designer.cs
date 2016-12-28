@@ -48,6 +48,8 @@
             // 
             // comboBoxUyeler
             // 
+            this.comboBoxUyeler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUyeler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxUyeler.FormattingEnabled = true;
             this.comboBoxUyeler.Location = new System.Drawing.Point(12, 27);
             this.comboBoxUyeler.Name = "comboBoxUyeler";
