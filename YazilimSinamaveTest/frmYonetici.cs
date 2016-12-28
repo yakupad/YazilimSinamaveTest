@@ -88,6 +88,7 @@ namespace YazilimSinamaveTest
                             dateTimePickerBaslangic.Value = dateTimePickerBitis.Value = DateTime.Now;
                             
                             treeViewGorevler.ExpandAll();
+                                cmbYazilimcilar.Items.Clear();
                                 listBoxYazilimcilar.Items.Clear();
                                 var yazilimcilar = db.tblUserRoles.Where(x => x.tblRoleNames.RoleName == "Yazılımcı");
                             foreach (var yazilimci in yazilimcilar)
@@ -129,7 +130,8 @@ namespace YazilimSinamaveTest
                             }
                             MessageBox.Show("Görev Eklendi");
                             var yazilimcilar = db.tblUserRoles.Where(x => x.tblRoleNames.RoleName == "Yazılımcı");
-                                
+                                listBoxYazilimcilar.Items.Clear();
+                                cmbYazilimcilar.Items.Clear();
                                 foreach (var yazilimci in yazilimcilar)
                             {
 
@@ -164,6 +166,7 @@ namespace YazilimSinamaveTest
        
         public void GorevleriListele(int ProjeID)
         {
+            treeViewGorevler.Nodes.Add("0", "Tüm Görevler");
             try
             {
                 foreach (tblProcess item in db.tblProcess.Where(x => x.ParentID == null && x.ProjectID == ProjeID))
@@ -339,10 +342,18 @@ namespace YazilimSinamaveTest
         {
             try
             {
+                cmbYazilimcilar.Items.Clear();
+                treeViewGorevler.Nodes.Clear();
                 groupBoxIslemler.Enabled = true;
                 GorevleriListele(db.tblProjects.FirstOrDefault(x => x.ProjectName == cmbProjeler.SelectedItem.ToString()).ProjectID);
-            
-                    treeViewGorevler.ExpandAll();
+                var yazilimcilar = db.tblUserRoles.Where(x => x.tblRoleNames.RoleName == "Yazılımcı");
+                
+                foreach (var yazilimci in yazilimcilar)
+                {
+
+                    cmbYazilimcilar.Items.Add(yazilimci.tblUsers.UserNickname);
+                }
+                treeViewGorevler.ExpandAll();
             
 
             }

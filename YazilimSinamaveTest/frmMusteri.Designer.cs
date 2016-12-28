@@ -324,6 +324,11 @@
             // txtButce2
             // 
             this.txtButce2.Location = new System.Drawing.Point(90, 249);
+            this.txtButce2.Maximum = new decimal(new int[] {
+            1316134912,
+            2328,
+            0,
+            0});
             this.txtButce2.Name = "txtButce2";
             this.txtButce2.Size = new System.Drawing.Size(125, 20);
             this.txtButce2.TabIndex = 16;

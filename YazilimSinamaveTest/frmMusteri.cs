@@ -116,6 +116,12 @@ namespace YazilimSinamaveTest
                     log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
                     db.tblUserLogDetails.Add(log);
                     db.SaveChanges();
+                    txtButce2.Value = 0;
+                    txtProjeAciklamasi.Text = txtProjeAdi.Text = txtSure.Text = "";
+                    
+                   
+                    chbAktif.Checked = false;
+
 
 
 

@@ -29,45 +29,53 @@ namespace YazilimSinamaveTest
         int userID;
         private void comboBoxUyeler_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+
+                checkBoxYazilimci.Enabled = checkBoxYonetici.Enabled = checkBoxMusteri.Enabled = true;
+                tblUsers user = db.tblUsers.Where(x => x.UserNickname == comboBoxUyeler.SelectedItem.ToString()).FirstOrDefault();
+                textBoxAd.Text = user.UserName;
+                textBoxKullanıcıAd.Text = user.UserNickname;
+                textBoxParola.Text = user.UserPassword;
+                textBoxSoyad.Text = user.UserSurname;
+                dateTimePickerKayitTarihi.Value = user.UserCreatedDate.Value;
+                userID = user.UsersID;
+                tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                log.LogDate = DateTime.Now;
+                log.UserLogDescription = userID + "Üye ID'li Üyenin bilgileri görüntülendi.";
+                log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
+                db.tblUserLogDetails.Add(log);
+                db.SaveChanges();
+                if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 1))
+                {
+                    checkBoxYazilimci.Checked = true;
+                }
+                else
+                {
+                    checkBoxYazilimci.Checked = false;
+                }
+                if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 2))
+                {
+                    checkBoxMusteri.Checked = true;
+                }
+                else
+                {
+                    checkBoxMusteri.Checked = false;
+                }
+                if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 3))
+                {
+                    checkBoxYonetici.Checked = true;
+                }
+                else
+                {
+                    checkBoxYonetici.Checked = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             
-            checkBoxYazilimci.Enabled = checkBoxYonetici.Enabled = checkBoxMusteri.Enabled = true;
-            tblUsers user = db.tblUsers.Where(x => x.UserNickname == comboBoxUyeler.SelectedItem.ToString()).FirstOrDefault();
-            textBoxAd.Text = user.UserName;
-            textBoxKullanıcıAd.Text = user.UserNickname;
-            textBoxParola.Text = user.UserPassword;
-            textBoxSoyad.Text = user.UserSurname;
-            dateTimePickerKayitTarihi.Value = user.UserCreatedDate.Value;
-            userID = user.UsersID;
-            tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
-            log.LogDate = DateTime.Now;
-            log.UserLogDescription = userID + "Üye ID'li Üyenin bilgileri görüntülendi.";
-            log.Username = db.tblUsers.FirstOrDefault(x => x.UsersID == frmUyeGiris.uyeID).UserNickname;
-            db.tblUserLogDetails.Add(log);
-            db.SaveChanges();
-            if (db.tblUserRoles.Any(x=>x.UserID==userID&&x.RoleNameID==1))
-            {
-                checkBoxYazilimci.Checked = true;
-            }
-            else
-            {
-                checkBoxYazilimci.Checked = false;
-            }
-            if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 2))
-            {
-                checkBoxMusteri.Checked = true;
-            }
-            else
-            {
-                checkBoxMusteri.Checked = false;
-            }
-            if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 3))
-            {
-                checkBoxYonetici.Checked = true;
-            }
-            else
-            {
-                checkBoxYonetici.Checked = false;
-            }
 
         }
         
@@ -196,7 +204,30 @@ namespace YazilimSinamaveTest
                 checkBoxMusteri.Checked = false;
             }
 
-
+            if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 1))
+            {
+                checkBoxYazilimci.Checked = true;
+            }
+            else
+            {
+                checkBoxYazilimci.Checked = false;
+            }
+            if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 2))
+            {
+                checkBoxMusteri.Checked = true;
+            }
+            else
+            {
+                checkBoxMusteri.Checked = false;
+            }
+            if (db.tblUserRoles.Any(x => x.UserID == userID && x.RoleNameID == 3))
+            {
+                checkBoxYonetici.Checked = true;
+            }
+            else
+            {
+                checkBoxYonetici.Checked = false;
+            }
 
 
         }
