@@ -640,5 +640,21 @@ txtGorevAdi.Text = txtGorevSuresi.Text = txtOncelik.Text = richTextBoxAciklama.T
                 MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dateTimePickerBaslangic_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime bTarih = Convert.ToDateTime(dateTimePickerBaslangic.Text);
+                DateTime eTarih = Convert.ToDateTime(dateTimePickerBitis.Text);
+                TimeSpan Sonuc = eTarih - bTarih;
+                dateTimePickerBitis.MinDate = bTarih;
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
