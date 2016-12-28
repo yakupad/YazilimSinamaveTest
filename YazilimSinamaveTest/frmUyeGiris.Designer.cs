@@ -49,6 +49,7 @@
             this.txtKulAdi.Name = "txtKulAdi";
             this.txtKulAdi.Size = new System.Drawing.Size(115, 29);
             this.txtKulAdi.TabIndex = 4;
+            this.txtKulAdi.TextChanged += new System.EventHandler(this.txtKulAdi_TextChanged);
             // 
             // txtSifre
             // 
@@ -59,6 +60,7 @@
             this.txtSifre.PasswordChar = '*';
             this.txtSifre.Size = new System.Drawing.Size(115, 29);
             this.txtSifre.TabIndex = 5;
+            this.txtSifre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSifre_MouseClick);
             // 
             // pictureBox2
             // 

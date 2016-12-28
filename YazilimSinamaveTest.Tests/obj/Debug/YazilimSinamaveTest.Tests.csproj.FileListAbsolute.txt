@@ -1,0 +1,16 @@
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\YazilimSinamaveTest.Tests.dll
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\YazilimSinamaveTest.Tests.pdb
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\Microsoft.ExtendedReflection.dll
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\Microsoft.Pex.Framework.dll
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\System.Windows.Forms.dll
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\YazilimSinamaveTest.exe
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\EntityFramework.dll
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\Microsoft.ExtendedReflection.Reasoning.dll
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\YazilimSinamaveTest.pdb
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\Microsoft.Pex.Framework.xml
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\bin\Debug\EntityFramework.xml
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\obj\Debug\YazilimSinamaveTest.Tests.csprojResolveAssemblyReference.cache
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\obj\Debug\YazilimSinamaveTest.Tests.dll
+C:\Users\02483883\Source\Repos\YazilimSinamaveTest\YazilimSinamaveTest.Tests\obj\Debug\YazilimSinamaveTest.Tests.pdb
