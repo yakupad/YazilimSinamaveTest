@@ -89,6 +89,7 @@
             this.dtpBaslangicTarihi.Name = "dtpBaslangicTarihi";
             this.dtpBaslangicTarihi.Size = new System.Drawing.Size(125, 20);
             this.dtpBaslangicTarihi.TabIndex = 2;
+            this.dtpBaslangicTarihi.Value = new System.DateTime(2016, 12, 28, 13, 4, 55, 0);
             this.dtpBaslangicTarihi.ValueChanged += new System.EventHandler(this.dtpBaslangicTarihi_ValueChanged);
             // 
             // dtpBitisTarihi

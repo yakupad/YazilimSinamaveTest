@@ -60,6 +60,7 @@
             this.txtSifre.PasswordChar = '*';
             this.txtSifre.Size = new System.Drawing.Size(115, 29);
             this.txtSifre.TabIndex = 5;
+            this.txtSifre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSifre_MouseClick);
             // 
             // pictureBox2
             // 

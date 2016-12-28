@@ -31,40 +31,7 @@ namespace YazilimSinamaveTest
         public static int uyeID = 0;
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            try
-            {
-              if (txtKulAdi.Text!="" ||txtSifre.Text!="")
-              {
-                if (db.tblUsers.Any(x => x.UserNickname == txtKulAdi.Text && x.UserPassword == txtSifre.Text))
-                {
-                    frmRolSecimi frmrol = new frmRolSecimi();
-                    uyeID = db.tblUsers.FirstOrDefault(x => x.UserNickname == txtKulAdi.Text && x.UserPassword == txtSifre.Text).UsersID;
-                        tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
-                        log.LogDate = DateTime.Now;
-                        log.UserLogDescription = "Üye Girişi Yaptı";
-                        log.Username = txtKulAdi.Text;
-                        db.tblUserLogDetails.Add(log);
-                        db.SaveChanges();
-                    this.Hide();
-                    frmrol.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Hatalı Kullanıcı Adı Veya Şifre","Hata!",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Lütfen Kullanıcı Adı Ve Şifre Alanını Boş Bırakmayınız!!!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Bilinmeyen Bir Hata Oluştu!",ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+            GirisYap(txtKulAdi.Text, txtSifre.Text);
         }
 
         private void lblUyelik_Click(object sender, EventArgs e)
@@ -115,6 +82,54 @@ namespace YazilimSinamaveTest
         {
            
            
+        }
+
+        private void txtSifre_MouseClick(object sender, MouseEventArgs e)
+        {
+            buyuksekucukyap();
+        }
+        public int GirisYap(string ad, string password)
+        {
+
+            try
+            {
+                if (ad !="" || password != "")
+                {
+                    if (db.tblUsers.Any(x => x.UserNickname == ad && x.UserPassword == password))
+                    {
+                        frmRolSecimi frmrol = new frmRolSecimi();
+                        uyeID = db.tblUsers.FirstOrDefault(x => x.UserNickname == ad && x.UserPassword == password).UsersID;
+                        tblUserLogDetails log = new YazilimSinamaveTest.tblUserLogDetails();
+                        log.LogDate = DateTime.Now;
+                        log.UserLogDescription = "Üye Girişi Yaptı";
+                        log.Username = ad;
+                        db.tblUserLogDetails.Add(log);
+                        db.SaveChanges();
+                        this.Hide();
+                        frmrol.Show();
+                        return 1;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Hatalı Kullanıcı Adı Veya Şifre", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return 0;
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen Kullanıcı Adı Ve Şifre Alanını Boş Bırakmayınız!!!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Bilinmeyen Bir Hata Oluştu!", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 2;
+            }
+
         }
     }
 }
