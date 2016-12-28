@@ -362,6 +362,7 @@
             // 
             this.dateTimePickerBaslangic.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerBaslangic.Location = new System.Drawing.Point(6, 85);
+            this.dateTimePickerBaslangic.MinDate = new System.DateTime(2016, 12, 28, 0, 0, 0, 0);
             this.dateTimePickerBaslangic.Name = "dateTimePickerBaslangic";
             this.dateTimePickerBaslangic.Size = new System.Drawing.Size(122, 20);
             this.dateTimePickerBaslangic.TabIndex = 6;
@@ -400,6 +401,7 @@
             this.dateTimePickerBitis.Name = "dateTimePickerBitis";
             this.dateTimePickerBitis.Size = new System.Drawing.Size(115, 20);
             this.dateTimePickerBitis.TabIndex = 7;
+            this.dateTimePickerBitis.ValueChanged += new System.EventHandler(this.dateTimePickerBitis_ValueChanged);
             // 
             // txtOncelik
             // 

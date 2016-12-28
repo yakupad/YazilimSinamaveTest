@@ -624,5 +624,21 @@ txtGorevAdi.Text = txtGorevSuresi.Text = txtOncelik.Text = richTextBoxAciklama.T
             frmLog logs = new YazilimSinamaveTest.frmLog();
             logs.Show();
         }
+
+        private void dateTimePickerBitis_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime bTarih = Convert.ToDateTime(dateTimePickerBaslangic.Text);
+                DateTime eTarih = Convert.ToDateTime(dateTimePickerBitis.Text);
+                TimeSpan Sonuc = eTarih - bTarih;
+                dateTimePickerBitis.MinDate = bTarih;
+                txtGorevSuresi.Text = Sonuc.TotalDays.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Bilinmeyen Bir Hata Oluştu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
