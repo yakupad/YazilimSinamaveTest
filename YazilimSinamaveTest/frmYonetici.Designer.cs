@@ -380,6 +380,7 @@
             this.dateTimePickerBaslangic.Name = "dateTimePickerBaslangic";
             this.dateTimePickerBaslangic.Size = new System.Drawing.Size(122, 20);
             this.dateTimePickerBaslangic.TabIndex = 6;
+            this.dateTimePickerBaslangic.ValueChanged += new System.EventHandler(this.dateTimePickerBaslangic_ValueChanged);
             // 
             // cmbYazilimcilar
             // 
